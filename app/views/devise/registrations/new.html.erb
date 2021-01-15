@@ -11,6 +11,11 @@
         <%= render "devise/shared/error_messages", resource: resource %>
         <div class="space-y-4">
           <div>
+            <%= f.label :name, class: 'text-sm text-gray-700' %><br />
+            <%= f.text_field :name, class: 'mt-1 rounded-none relative block w-full px-4 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm', placeholder: 'username (will be shown publicly)'  %>
+          </div>
+
+          <div>
             <%= f.label :email, class: 'text-sm text-gray-700' %><br />
             <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'mt-1 rounded-none relative block w-full px-4 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm', placeholder: 'Email Address'  %>
           </div>
