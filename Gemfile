@@ -58,6 +58,7 @@ group :test do
 
   gem 'guard'
   gem 'guard-rspec', require: false
+  gem 'spring-commands-rspec'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
   # rexml no default in ruby 3.0, -> required for specs 
