@@ -1,8 +1,8 @@
 FactoryBot.define do
   factory :post do
-    title { "MyString" }
-    content { "MyText" }
-    user { nil }
-    category { nil }
+    title { 'a' * 20 }
+    content { 'a' * 20 }
+    user
+    category
   end
 end

@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :category do
-    name { "MyString" }
-    branch { "MyString" }
+    sequence(:name) { |n| "name#{n}" }
+    sequence(:branch) { |n| "branch#{n}" }
   end
 end
