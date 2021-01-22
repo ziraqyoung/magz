@@ -1,0 +1,21 @@
+<div>
+  <div>
+    <h1><%= page_title %></h1>
+    <%= render 'posts/branch/create_new_post', branch: branch %>
+  </div>
+
+  <div>
+    <%= render 'posts/branch/categories', branch: branch %>
+  </div>
+
+  <div>
+    <div class="px-4 grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 xl:gap-8">
+      <%= render @posts %>
+    </div>
+    <%= render no_posts_partial_path %>
+  </div>
+
+  <div>
+    <%== pagy_nav(@pagy) %>
+  </div>
+</div>

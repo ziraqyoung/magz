@@ -1,0 +1,13 @@
+<% branch_path_name = "#{params[:action]}_posts_path" %>
+
+<div>
+  <ul>
+    <%= render all_categories_button_partial_path, branch_path_name: branch_path_name %>
+
+    <% @categories.each do |category| %>
+      <li>
+        <%= link_to category.name, send(branch_path_name, category: category.name) %>
+      </li>
+    <% end %>
+  </ul>
+</div>

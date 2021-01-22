@@ -142,6 +142,7 @@ GEM
       nenv (~> 0.1)
       shellany (~> 0.0)
     orm_adapter (0.5.0)
+    pagy (3.10.0)
     pg (1.2.3)
     pry (0.13.1)
       coderay (~> 1.1)
@@ -288,6 +289,7 @@ DEPENDENCIES
   guard-rspec
   jbuilder (~> 2.7)
   listen (~> 3.3)
+  pagy (~> 3.10)
   pg (~> 1.1)
   puma (~> 5.0)
   rack-mini-profiler (~> 2.0)
