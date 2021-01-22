@@ -36,4 +36,16 @@ RSpec.describe PostsHelper, type: :helper do
       expect(helper.no_posts_partial_path).to eq("shared/empty_partial")
     end
   end
+
+  context "#post_format_partial_path" do
+    it "returns a home_page partial's path" do
+      allow(helper).to receive(:current_page?).and_return(true)
+      expect(helper.post_format_partial_path).to eq("posts/post/home_page")
+    end
+
+    it "returns a branch_page partial's path" do
+      allow(helper).to receive(:current_page?).and_return(false)
+      expect(helper.post_format_partial_path).to eq("posts/post/branch_page")
+    end
+  end
 end
