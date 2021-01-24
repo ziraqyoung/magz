@@ -4,7 +4,7 @@ def seed_users
 
   10.times do
     User.create(
-      name: "name-#{user_id}",
+      name: "#{Faker::Name.name}-#{user_id}",
       email: "test-#{user_id}@test.com",
       password: '123456',
       password_confirmation: '123456'
