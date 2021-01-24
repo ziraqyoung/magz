@@ -1,21 +1,29 @@
-<div>
-  <div>
-    <h1><%= page_title %></h1>
+<div class="h-full p-8 border-2 shadow-xl space-y-4 lg:mx-auto lg:max-w-5xl rounded-3xl">
+  <div class="flex flex-col space-y-2">
+    <h2 class="text-3xl font-bold text-center text-gray-800">
+      <%= page_title %>
+    </h2>
+
     <%= render 'posts/branch/create_new_post', branch: branch %>
   </div>
 
-  <div>
-    <%= render 'posts/branch/categories', branch: branch %>
-  </div>
-
-  <div>
-    <div class="px-4 grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 xl:gap-8">
-      <%= render @posts %>
+  <div class="">
+    <div class="text-lg text-gray-800 font-sm">
+      <%= render 'posts/branch/categories', branch: branch %>
     </div>
-    <%= render no_posts_partial_path %>
   </div>
 
-  <div>
-    <%== pagy_nav(@pagy) %>
+  <div class="overflow-hidden border-2 rounded-md">
+    <div class="overflow-x-auto text-lg text-gray-800 divide-y-2 divide-gray-200">
+      <%= render @posts %>
+
+      <%= render no_posts_partial_path %>
+    </div>
+  </div>
+
+  <div class="flex items-center justify-center">
+    <div class="text-lg font-medium text-gray-800">
+      <%== pagy_nav(@pagy) %>
+    </div>
   </div>
 </div>

@@ -1,13 +1,11 @@
 <% branch_path_name = "#{params[:action]}_posts_path" %>
 
-<div>
-  <ul>
+<div class="px-4 py-3 overflow-hidden">
+  <div class="flex pb-5 overflow-x-auto space-x-2">
     <%= render all_categories_button_partial_path, branch_path_name: branch_path_name %>
 
     <% @categories.each do |category| %>
-      <li>
-        <%= link_to category.name, send(branch_path_name, category: category.name) %>
-      </li>
+      <%= link_to category.name, send(branch_path_name, category: category.name), class: 'bg-gray-500 whitespace-nowrap inline-block px-4 py-2 rounded-md text-white' %>
     <% end %>
-  </ul>
+  </div>
 </div>

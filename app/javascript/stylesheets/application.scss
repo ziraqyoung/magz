@@ -5,4 +5,36 @@ details > summary::-webkit-details-marker {
   display: none;
 }
 
+.pagy-nav, {
+  @apply inline-flex shadow-md;
+}
+
+.pagy-nav.pagination, {
+  @apply rounded-md;
+}
+.pagy-nav .page, {
+  @apply text-gray-700 px-3 py-2 text-sm leading-tight font-medium;
+}
+
+
+.pagy-nav .active, {
+  @apply bg-indigo-300;
+}
+
+// .pagy-nav .prev, {
+  // @apply text-gray-700;
+// }
+//
+// .pagy-nav .prev, {
+  // @apply opacity-80;
+// }
+
+.pagy-nav .next, {
+  @apply opacity-80;
+}
+
+.pagy-nav .disabled, {
+  @apply cursor-not-allowed text-gray-400;
+}
+
 @import "tailwindcss/utilities";
