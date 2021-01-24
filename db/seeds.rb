@@ -22,24 +22,24 @@ def seed_categories
           'Social Sciences', 'Language', 'Other']
   team = ['Study', 'Development', 'Arts and Hobby', 'Other']
 
-  hobby.each do |hobby|
+  hobby.each do |name|
     Category.create(
       branch: "hobby",
-      name: hobby
+      name: name
     )
   end
 
-  study.each do |study|
+  study.each do |name|
     Category.create(
       branch: "study",
-      name: study
+      name: name
     )
   end
 
-  team.each do |team|
+  team.each do |name|
     Category.create(
       branch: "team",
-      name: team
+      name: name
     )
   end
 end
