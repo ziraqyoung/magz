@@ -7,6 +7,12 @@
     <%= render 'posts/branch/create_new_post', branch: branch %>
   </div>
 
+  <div>
+    <%= render 'posts/branch/search_form',
+      branch: branch,
+      search_placeholder: search_placeholder %>
+  </div>
+
   <div class="">
     <div class="text-lg text-gray-800 font-sm">
       <%= render 'posts/branch/categories', branch: branch %>
