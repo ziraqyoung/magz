@@ -5,7 +5,7 @@
     <%= render all_categories_button_partial_path, branch_path_name: branch_path_name %>
 
     <% @categories.each do |category| %>
-      <%= link_to category.name, send(branch_path_name, category: category.name), class: 'border-2 border-gray-500 font-semibold inline-block px-4 py-2 rounded-md text-gray-500 text-white whitespace-nowrap hover:bg-gray-500 hover:text-gray-100' %>
+      <%= link_to category.name, send(branch_path_name, category: category.name), class: "border-2 border-gray-500 font-semibold inline-block px-4 py-2 rounded-md whitespace-nowrap  #{params[:category] == category.name ? 'bg-gray-500 text-white hover:opacity-90' : 'text-gray-500 hover:bg-gray-500 hover:text-gray-100' }" %>
     <% end %>
   </div>
 </div>
