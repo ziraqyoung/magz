@@ -1,0 +1,17 @@
+<%= form_for @post do |f| %>
+  <div>
+    <%= f.text_field :title %>
+  </div>
+  <div>
+    <%= f.hidden_field :branch, value: @branch %>
+  </div>
+  <div>
+    <%= f.text_field :content %>
+  </div>
+  <div>
+    <%= f.collection_select :category_id, @categories, :id, :name %>
+  </div>
+  <div>
+    <%= f.submit 'Create a post' %>
+  </div>
+<% end %>
