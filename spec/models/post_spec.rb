@@ -40,11 +40,56 @@ RSpec.describe Post, type: :model do
 
     it 'search scope finds a matching posts' do
       post = create(:post, title: 'awesome title', content: 'great content' * 5)
-      create_list(:post, 10, title: ('a'..'c').to_a.shuffle.join)
+      create_list(:post, 10, title: ('a'..'f').to_a.shuffle.join)
       expect(Post.search('awesome').count).to eq(1)
       expect(Post.search('awesome')[0].id).to eq(post.id)
       expect(Post.search('great').count).to eq(1)
       expect(Post.search('great')[0].id).to eq(post.id)
+    end
+  end
+
+  context 'Validations' do
+    let(:category) { create(:category) }
+    let(:user) { create(:user) }
+    let(:post) { build(:post, category: category, user: user) }
+
+    it 'creates successfully' do
+      expect(post).to be_valid
+    end
+
+    it 'not valid without a category' do
+      post.category_id = nil
+      expect(post).to_not be_valid
+    end
+
+    it 'not valid without a title' do
+      post.title = ''
+      expect(post).to_not be_valid
+    end
+
+    it 'not valid without a user_id' do
+      post.user_id = nil
+      expect(post).to_not be_valid
+    end
+
+    it 'not valid with title longer than 255 character' do
+      post.title = 'a' * 260 
+      expect(post).to_not be_valid
+    end
+
+    it 'not valid without a content' do
+      post.content = ''
+      expect(post).to_not be_valid
+    end
+
+    it 'not valid with content shorter than 20 characters' do
+      post.content = 'a' * 10
+      expect(post).to_not be_valid
+    end
+
+    it 'not valid with content longer than 1000 characters' do
+      post.content = 'a' * 1001
+      expect(post).to_not be_valid
     end
   end
 end
