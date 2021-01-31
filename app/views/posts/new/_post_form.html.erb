@@ -1,17 +1,24 @@
 <%= form_for @post do |f| %>
-  <div>
-    <%= f.text_field :title %>
-  </div>
-  <div>
-    <%= f.hidden_field :branch, value: @branch %>
-  </div>
-  <div>
-    <%= f.text_field :content %>
-  </div>
-  <div>
-    <%= f.collection_select :category_id, @categories, :id, :name %>
-  </div>
-  <div>
-    <%= f.submit 'Create a post' %>
+  <div class="h-full p-8 border-2 shadow-xl rounded-3xl">
+    <div class="space-y-6 sm:p-6">
+      <div>
+        <%= f.label :title, class: 'sr-only' %>
+        <%= f.text_field :title, class: 'relative block w-full bg-gray-100 px-4 py-3 font-semibold border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10', placeholder: 'Title', require: true, minlenght: 5, maxlength: 100 %>
+      </div>
+      <div>
+        <%= f.hidden_field :branch, value: @branch %>
+      </div>
+      <div>
+        <%= f.label :content, class: 'sr-only' %>
+        <%= f.text_area :content, class: 'relative block w-full bg-gray-100 px-4 py-3 font-semibold border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10', rows: 6, required: true, minlength: 20, maxlength: 1000, placeholder: 'Describe what you are looking for. E.g. specific interests, expertise level, etc.' %>
+      </div>
+      <div class="bg-gray-100">
+        <%= f.collection_select(:category_id, @categories, :id, :name, {prompt: 'Select category name'}, { class: 'rounded-md bg-gray-100 relative block w-full px-4 py-3 font-semibold border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10' }) %>
+      </div>
+
+      <div class="px-4 pt-3 text-center sm:px-6">
+        <%= f.submit 'Create a post', class: 'inline-flex justify-center py-2 px-4 font-semibold border border-transparent shadow-sm rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500' %>
+      </div>
+    </div>
   </div>
 <% end %>
