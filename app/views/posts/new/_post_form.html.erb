@@ -6,9 +6,6 @@
         <%= f.text_field :title, class: 'relative block w-full bg-gray-100 px-4 py-3 font-semibold border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10', placeholder: 'Title', require: true, minlenght: 5, maxlength: 100 %>
       </div>
       <div>
-        <%= f.hidden_field :branch, value: @branch %>
-      </div>
-      <div>
         <%= f.label :content, class: 'sr-only' %>
         <%= f.text_area :content, class: 'relative block w-full bg-gray-100 px-4 py-3 font-semibold border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10', rows: 6, required: true, minlength: 20, maxlength: 1000, placeholder: 'Describe what you are looking for. E.g. specific interests, expertise level, etc.' %>
       </div>
