@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" class="bg-blue-800">
   <head>
     <title>Magz</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -11,15 +11,19 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body class="flex flex-col text-gray-900 bg-gray-100">
-    <header class="z-30 flex-shrink-0"
+  <body class="flex px-4 py-6 text-gray-900 bg-blue-800">
+    <nav class="z-30 w-1/6 overflow-x-hidden"
       <%= render "layouts/navigation" %>
-    </header>
+    </nav>
 
-    <div class="px-8 pt-6 pb-5 bg-gray-100">
-      <div class="p-8 border-2 shadow-xl lg:mx-auto lg:max-w-5xl rounded-3xl">
+    <div class="flex-1 min-w-0 min-h-screen px-4 pb-8 bg-gray-200 border-2 rounded-3xl">
+      <div class="border-b">
+        top bar
+      </div>
+
+      <div class="mt-5 grid grid-cols-12 gap-6">
         <%= yield %>
-      <div>
+      </div>
     </div>
   </body>
 </html>

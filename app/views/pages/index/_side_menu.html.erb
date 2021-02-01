@@ -1,27 +1,25 @@
-<div class="flex-shrink-0 md:w-64">
-  <details 
-     class="relative flex max-w-md mx-auto"
-     data-controller="popup-menu"
-     data-action="toggle->popup-menu#update focusin@window->popup-menu#closeOnFocusOutside click@window->popup-menu#closeOnClickOutside reset->popup-menu#close"
-     >
-    <summary class="w-40 py-1 mx-auto list-none rounded-full cursor focus:outline-none focus:ring-2 focus:ring-indigo" role="button">
-      <div class="flex items-center justify-center w-full">
-        <span class="text-3xl font-bold">
-          menu
-        </span>
+<details 
+  class="relative inline-flex"
+  data-controller="popup-menu"
+  data-action="toggle->popup-menu#update focusin@window->popup-menu#closeOnFocusOutside click@window->popup-menu#closeOnClickOutside reset->popup-menu#close"
+  >
+  <summary class="px-4 py-2 font-semibold list-none bg-white border rounded-lg rounded-full cursor focus:outline-none focus:ring-2 focus:ring-blue-700 hover:bg-opacity-80 transition-colors duration-150" role="button">
+    <div class="flex items-center justify-center w-full text-blue-700">
+      <span class="tracking-wider">
+        menu
+      </span>
 
-        <span class="ml-2">
-          <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-          </svg>
-        </span>
-      </div>
-    </summary>
-
-    <div class="absolute z-40 w-full px-4 py-3 mt-3 text-white list-none shadow-lg rounded-3xl bg-gradient-to-br from-pink-500 to-indigo-500 left-1/2 transform -translate-x-1/2 sm:px-0 sm:max-w-64" role="menu" aria-orientation="vertical" aria-labelledby="user-menu">
-      <div class="overflow-hidden sm:px-4 space-y-4">
-        <%= render 'pages/index/side_menu/no_login_required_links' %>
-      </div>
+      <span class="ml-4">
+        <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+        </svg>
+      </span>
     </div>
-  </details>
-</div>
+  </summary>
+
+  <div class="w-max absolute z-40 px-4 py-3 mt-3 text-white list-none shadow-lg rounded-3xl bg-gradient-to-br from-pink-500 to-indigo-500 left-1/2 transform -translate-x-1/2 sm:px-0 role="menu" aria-orientation="vertical" aria-labelledby="user-menu">
+    <div class="overflow-hidden sm:px-4 space-y-4">
+      <%= render 'pages/index/side_menu/no_login_required_links' %>
+    </div>
+  </div>
+</details>

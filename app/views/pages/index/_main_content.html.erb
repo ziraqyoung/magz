@@ -1,9 +1,8 @@
-<div class="flex-1 space-y-10">
   <div class="space-y-2">
     <h3 class="flex justify-center">
       <%= link_to "Hobby", hobby_posts_path, class: 'text-3xl underline hover:text-yellow-400 transition-colors font-bold duration-500' %>
     </h3>
-    <div class="px-4 grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-4 xl:gap-6">
+    <div class="px-4 grid grid-cols-12 gap-6 auto-rows-fr">
       <%= render @hobby_posts %>
       <%= render no_posts_partial_path(@hobby_posts) %>
     </div>
@@ -13,7 +12,7 @@
     <h3 class="flex justify-center">
       <%= link_to "Study", study_posts_path, class: 'text-3xl underline hover:text-yellow-400 transition-colors font-bold duration-500' %>
     </h3>
-    <div class="px-4 grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-4 xl:gap-6">
+    <div class="px-4 grid grid-cols-12 gap-6 auto-rows-fr">
       <%= render @study_posts %>
       <%= render no_posts_partial_path(@study_posts) %>
     </div>
@@ -23,9 +22,8 @@
     <h3 class="flex justify-center">
       <%= link_to "Team", team_posts_path, class: 'text-3xl underline hover:text-yellow-400 transition-colors font-bold duration-500' %>
     </h3>
-    <div class="px-4 grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-4 xl:gap-6">
+    <div class="px-4 grid grid-cols-12 gap-6 auto-rows-fr">
       <%= render @team_posts %>
       <%= render no_posts_partial_path(@team_posts) %>
     </div>
   </div>
-</div>

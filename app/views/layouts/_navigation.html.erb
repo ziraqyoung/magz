@@ -1,30 +1,11 @@
-<!-- This example requires Tailwind CSS v2.0+ -->
-<nav class="bg-gray-800">
-  <div class="px-2 mx-auto max-w-7xl sm:px-6 lg:px-8">
-    <div class="relative flex items-center justify-between h-16">
-      <!-- signed in user menu and its dropdown and notification icon -->
-      <%= render 'layouts/navigation/header' %>
+<div class="px-2">
+  <div class="relative flex flex-col justify-between h-16">
+    <!-- signed in user menu and its dropdown and notification icon -->
+    <%= render 'layouts/navigation/header' %>
 
-      <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-        <!-- Profile dropdown -->
-        <%= render 'layouts/navigation/collapsible_elements' %>
-      </div>
+    <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+      <!-- Profile dropdown -->
+      <%= render 'layouts/navigation/collapsible_elements' %>
     </div>
   </div>
-
-  <!--
-    Mobile menu, toggle classes based on menu state.
-
-    Menu open: "block", Menu closed: "hidden"
-  -->
-  <div class="hidden sm:hidden">
-    <div class="px-2 pt-2 pb-3 space-y-1">
-      <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-      <a href="#" class="block px-3 py-2 text-base font-medium text-white bg-gray-900 rounded-md">Dashboard</a>
-      <a href="#" class="block px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white rounded-md">Team</a>
-      <a href="#" class="block px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white rounded-md">Projects</a>
-      <a href="#" class="block px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white rounded-md">Calendar</a>
-    </div>
-  </div>
-</nav>
-
+</div>
