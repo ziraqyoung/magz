@@ -17,8 +17,18 @@
     </nav>
 
     <div class="flex-1 min-w-0 min-h-screen px-4 pt-4 pb-10 bg-gray-200 border-2 space-y-5 rounded-3xl">
-      <div class="border-b border-gray-400">
-        top bar
+      <div class="relative flex items-center justify-between border-b border-gray-400">
+        <div>
+          top bar
+        </div>
+
+        <% if flash.any? %>
+          <% flash.each do |message_type, message| %>
+            <div class="absolute inline-block inset-y-8 flash">
+              <p class="<%= message_type %> px-4 py-2 font-medium text-center text-white col-span-full rounded-2xl"><%= message %></p>
+            </div>
+          <% end %>
+        <% end %>
       </div>
 
       <div class="h-full pb-10 grid grid-cols-12">
