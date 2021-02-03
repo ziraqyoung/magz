@@ -37,4 +37,11 @@ details > summary::-webkit-details-marker {
   @apply cursor-not-allowed text-gray-400;
 }
 
+// field with errors 
+.field_with_errors {
+  input, text-area, select {
+    @apply border text-rose-500 border-red-600 bg-rose-50;
+  }
+}
+
 @import "tailwindcss/utilities";

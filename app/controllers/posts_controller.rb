@@ -12,10 +12,16 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
 
-    if @post.save
-      redirect_to post_path(@post)
-    else
-      redirect_to root_path
+    respond_to do |format|
+      if @post.save
+        format.html { redirect_to post_path(@post) }
+      else
+        format.html {redirect_to root_path }
+        format.turbo_stream do 
+          @categories = Category.where(branch: params[:branch]) || []
+          render turbo_stream: turbo_stream.replace(@post, partial: 'posts/new/post_form', locals: { post: @post, categories: @categories } )
+        end
+      end
     end
   end
 
