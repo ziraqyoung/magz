@@ -44,4 +44,21 @@ details > summary::-webkit-details-marker {
   }
 }
 
+.flash {
+  p.alert {
+    @apply bg-rose-400
+  }
+  p.notice {
+    @apply bg-teal-400
+  }
+
+  p.success {
+    @apply bg-green-400
+  }
+
+  p.warning {
+    @apply bg-amber-400
+  }
+}
+
 @import "tailwindcss/utilities";
