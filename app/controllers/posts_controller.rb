@@ -14,9 +14,10 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
+        flash[:success] = 'post create successfully'
         format.html { redirect_to post_path(@post) }
       else
-        format.html {redirect_to root_path }
+        format.html { redirect_to root_path, alert: "Post not created" }
         format.turbo_stream do 
           @categories = Category.where(branch: params[:branch]) || []
           render turbo_stream: turbo_stream.replace(@post, partial: 'posts/new/post_form', locals: { post: @post, categories: @categories } )
