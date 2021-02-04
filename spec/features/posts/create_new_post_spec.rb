@@ -5,7 +5,7 @@ RSpec.feature "Create a new post", type: :feature do
   before(:each) { sign_in user }
 
   shared_examples "user creates a new post" do |branch|
-    scenario "successfull" do
+    scenario "successfull create for #{branch} branch" do
       create(:category, name: 'category', branch: branch)
       visit send("#{branch}_posts_path")
       find('.new_post a').click

@@ -35,7 +35,7 @@ rescue ActiveRecord::PendingMigrationError => e
 end
 
 Capybara.server = :puma
-Capybara.javascript_driver = :selenium_chrome
+Capybara.javascript_driver = :selenium_chrome_headless
 
 RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
