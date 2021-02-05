@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  add_flash_types :success, :warning, :notice, :alert
 
   protected
     def redirect_if_not_signed_in
