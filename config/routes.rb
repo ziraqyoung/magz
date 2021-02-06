@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root to: 'pages#index'
+
   devise_scope :user do
     get '/login', to: 'devise/sessions#new'
     get '/signup', to: 'devise/registrations#new'
@@ -13,6 +15,10 @@ Rails.application.routes.draw do
     end
   end
 
-  root to: 'pages#index'
+  namespace :private do
+    resources :conversations,only: :create
+    resources :messages, only: [:index, :create]
+  end
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

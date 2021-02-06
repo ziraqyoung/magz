@@ -1,0 +1,9 @@
+<%= form_tag({controller: 'private/conversations', action: 'create'}, method: 'post') do %>
+  <%= hidden_field_tag :post_id, @post.id %>
+  <div>
+    <%= text_area_tag :message_body, nil, rows: 3, class: '' %>
+  </div>
+  <div>
+    <%= submit_tag 'Send a message', class: 'px-4 py-2 bg-blue-600' %>
+  </div>
+<% end %>

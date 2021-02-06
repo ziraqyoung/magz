@@ -48,4 +48,40 @@ RSpec.describe PostsHelper, type: :helper do
       expect(helper.post_format_partial_path).to eq("posts/post/branch_page")
     end
   end
+
+  context "#contact_user_partial_path" do
+    before(:each) do
+      @current_user = create(:user, id: 1)
+      allow(helper).to receive(:current_user).and_return(@current_user)
+    end
+
+    it "returns contact_user partial's path" do
+      allow(helper).to receive(:user_signed_in?).and_return(true)
+      assign(:post, create(:post, user: create(:user, id: 2)))
+      expect(helper.contact_user_partial_path).to eq('posts/show/contact_user')
+    end
+
+    it "returns empty_partial partial's path" do
+      allow(helper).to receive(:user_signed_in?).and_return(true)
+      assign(:post, create(:post, user: @current_user))
+      expect(helper.contact_user_partial_path).to eq('shared/empty_partial')
+    end
+
+    it "returns login_required partial's path" do
+      allow(helper).to receive(:user_signed_in?).and_return(false)
+      expect(helper.contact_user_partial_path).to eq('posts/show/login_required')
+    end
+  end
+
+  context "#leave_message_partial_path" do
+    it "returns already_in_touch partial's path" do
+      assign(:message_has_been_sent, true)
+      expect(helper.leave_message_partial_path).to eq('posts/show/contact_user/already_in_touch')
+    end
+
+    it "returns message_form partial's path" do
+      assign(:message_has_been_sent, false)
+      expect(helper.leave_message_partial_path).to eq("posts/show/contact_user/message_form")
+    end
+  end
 end
