@@ -1,4 +1,8 @@
-<span class="font-medium text-gray-500">
-  To contact user you have to
+<span class="flex flex-col items-center sm:flex-row sm:items-start sm:justify-center sm:space-x-2 space-y-2 sm:space-y-0">
+  <span class="font-medium text-gray-500">
+    To contact user you have to
+  </span>
+  <span class="">
+    <%= link_to 'Login', login_path, class: 'px-4 py-2 bg-blue-600 text-white font-medium rounded-md' %>
+  </span>
 </span>
-<%= link_to 'Login', login_path, class: 'px-4 py-2 bg-blue-600 text-white font-medium rounded-md ml-2' %>
