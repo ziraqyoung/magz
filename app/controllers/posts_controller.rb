@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   include Pagy::Backend
 
-  before_action :redirect_if_not_signed_in, only: [:new]
+  before_action :redirect_if_not_signed_in, only: [:new, :create]
 
   def new
     @branch = params[:branch]
@@ -28,6 +28,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+
     if user_signed_in?
       @message_has_been_sent = conversation_exist?
     end
