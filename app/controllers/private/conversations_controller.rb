@@ -1,4 +1,6 @@
 class Private::ConversationsController < ApplicationController
+  before_action :redirect_if_not_signed_in
+
   def index
     @conversations = Private::Conversation.where(sender: current_user).or(Private::Conversation.where(recipient: current_user))
   end
