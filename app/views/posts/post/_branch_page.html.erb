@@ -1,17 +1,14 @@
 <div class="">
-  <%= link_to post_path(post), class: 'w-full block hover:bg-blue-100', data: { controller: 'initials-avatar', initials_avatar_name_value: post.user.name } do %>
+  <%= link_to post_path(post), class: 'w-full block hover:bg-blue-100' do %>
     <div class="flex items-center px-2 py-3 sm:px-5 space-x-2">
-      <div class="flex items-center justify-center flex-shrink-0 w-10 h-10 bg-blue-300 rounded-full" width="20" height="20" data-initials-avatar-target="avatar">
-        <span class="block font-bold text-white" data-initials-avatar-target="initials"></span>
-      </div>
-
+      <%= render 'shared/user_avatar', name: post.user.name %>
       <div class="flex justify-center space-x-4">
         <div class="sr-only">
           <%= post.user.name %>
         </div>
 
         <div class="truncate">
-        <%= post.title %>
+          <%= post.title %>
         </div>
       </div>
     </div>

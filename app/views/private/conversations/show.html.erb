@@ -1,0 +1,31 @@
+<div class="relative flex flex-col max-h-screen px-4 py-6 overflow-hidden bg-white shadow-md h-5/6 col-span-full space-y-3 divide-y-2 md:col-span-10 md:col-start-2 rounded-md">
+  <!-- top section -->
+  <div class="flex flex-col flex-shrink-0 space-y-2 divide-y-2 md:flex-row md:space-y-0 md:divide-y-0 md:justify-between md:items-center">
+    <div class="flex items-center space-x-4">
+      <%= render 'shared/user_avatar', name: @conversation.recipient.name %>
+      <span class="text-sm font-semibold text-gray-600"><%= @conversation.recipient.name %></span>
+    </div>
+
+    <div class="pt-2 text-sm text-gray-600 md:text-base space-x-2 md:pt-0">
+      <span>Search icon</span>
+      <span>new icon</span>
+      <span>hum icon</span>
+    </div>
+  </div>
+
+  <!-- messages list section -->
+  <div class="flex-1 px-4 pt-4 overflow-y-auto">
+    <% if @conversation.messages.present? %>
+      <%= render @conversation.messages %>
+    <% else %>
+      <div>
+        Hey, You have not message with <%= @conversation.recipient.name %>
+      </div>
+    <% end %>
+  </div>
+
+  <!-- new messages form section -->
+  <div class="flex-shrink-0 px-2 bg-blue-300">
+    form
+  </div>
+</div>

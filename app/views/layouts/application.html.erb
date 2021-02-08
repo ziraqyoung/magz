@@ -16,8 +16,8 @@
       <%= render "layouts/navigation" %>
     </nav>
 
-    <div class="flex-1 min-w-0 min-h-screen px-2 pt-4 pb-10 overflow-x-auto bg-gray-200 border-2 md:px-4 space-y-5 rounded-3xl">
-      <div class="relative flex items-center justify-between border-b border-gray-400">
+    <div class="flex flex-col flex-1 min-w-0 min-h-screen px-2 pt-4 pb-10 overflow-hidden overflow-x-auto bg-gray-200 border-2 md:px-4 space-y-5 rounded-3xl">
+      <div class="relative flex items-center justify-between flex-shrink-0 border-b border-gray-400">
         <div>
           top bar
         </div>
@@ -31,7 +31,7 @@
         <% end %>
       </div>
 
-      <div class="py-10 grid grid-cols-12 space-y-4">
+      <div class="flex-1 py-10 grid grid-cols-12 space-y-4">
         <%= yield %>
       </div>
     </div>

@@ -61,4 +61,19 @@ details > summary::-webkit-details-marker {
   }
 }
 
+// chat box
+.chat__box__text-box {
+  max-width: 94%;
+}
+
+@screen md {
+  .chat__box__text-box {
+    max-width: 49%;
+  }
+}
+
+.clear-both {
+  clear: both;
+}
+
 @import "tailwindcss/utilities";
