@@ -11,6 +11,5 @@ RSpec.feature "Visit single post", type: :feature do
     page.find(".single_post_card a").click
     expect(page).to have_content(post.content)
     expect(page).to have_content(post.title)
-    expect(page).to have_content(post.user.name)
   end
 end
