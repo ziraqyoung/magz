@@ -1,10 +1,10 @@
 <div class="flex flex-col p-4 bg-white shadow-md col-span-full space-y-6 divide-y-2 md:col-span-10 md:col-start-2 rounded-md">
   <div class="overflow-x-auto text-lg text-gray-800 divide-y-2 divide-gray-200">
-    <% if @conversation.present? %>
+    <% if @conversations.present? %>
       <%= render @conversations %>
     <% else %>
-      <div>
-        currently no pings available
+      <div class="text-gray-600">
+        currently no private conversations available
       </div>
     <% end %>
   </div>
