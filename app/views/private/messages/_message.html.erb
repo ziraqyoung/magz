@@ -1,7 +1,9 @@
-<div class="flex items-end <%= message.user == current_user ? 'float-right' : 'float-left flex-row-reverse' %> mb-4 chat__box__text-box">
+<%= render private_message_date_check(message, message.previous_message), locals: { message: message } %>
+
+<div class="flex items-end <%= sent_or_received(message, current_user) %> mb-4 chat__box__text-box">
   <div class="px-4 py-3 font-medium text-white <%= message.user == current_user ? 'bg-fuchsia-800' : 'bg-gray-800 text-white' %> rounded-l-md rounded-t-md">
     <%= message.body %>
-    <div class="mt-1 text-xs text-gray-300"><%= message.created_at %></div>
+    <div class="mt-1 text-xs text-gray-300"><%= time_ago_in_words message.created_at %></div>
   </div>
 
   <div class="relative flex-none hidden w-10 h-10 mx-3 sm:block">
