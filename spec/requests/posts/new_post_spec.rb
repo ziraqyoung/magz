@@ -5,7 +5,7 @@ RSpec.describe "new", type: :request do
   context 'non-signed in users' do
     it 'it redirects to root path' do
       get '/posts/new'
-      expect(response).to redirect_to(root_path)
+      expect(response).to redirect_to(login_path)
     end
   end
 
