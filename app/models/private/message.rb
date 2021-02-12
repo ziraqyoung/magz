@@ -1,8 +1,11 @@
 class Private::Message < ApplicationRecord
-  validates :body, presence: true
+  default_scope { order(created_at: :asc) }
 
   belongs_to :user
-  belongs_to :conversation, class_name: 'Private::Conversation', foreign_key: :conversation_id
+  belongs_to :messagable, polymorphic: true
+
+  has_rich_text :message_body
+  validates :message_body, presence: true
 
   def previous_message
     previous_message_index = self.conversation.messages.index(self) - 1

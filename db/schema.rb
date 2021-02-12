@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_10_152257) do
+ActiveRecord::Schema.define(version: 2021_02_10_180700) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -82,13 +82,13 @@ ActiveRecord::Schema.define(version: 2021_02_10_152257) do
   end
 
   create_table "private_messages", force: :cascade do |t|
-    t.text "body"
     t.bigint "user_id"
-    t.bigint "conversation_id"
     t.boolean "seen", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["conversation_id"], name: "index_private_messages_on_conversation_id"
+    t.string "messagable_type", null: false
+    t.bigint "messagable_id", null: false
+    t.index ["messagable_type", "messagable_id"], name: "index_private_messages_on_messagable"
     t.index ["user_id"], name: "index_private_messages_on_user_id"
   end
 
