@@ -2,7 +2,7 @@
 
 <div class="flex items-end <%= sent_or_received(message, current_user) %> mb-4 chat__box__text-box">
   <div class="px-4 py-3 font-medium text-white <%= message.user == current_user ? 'bg-fuchsia-800' : 'bg-gray-800 text-white' %> rounded-l-md rounded-t-md">
-    <%= message.body %>
+    <%= message.message_body %>
     <div class="mt-1 text-xs text-gray-300"><%= time_ago_in_words message.created_at %></div>
   </div>
 
