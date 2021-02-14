@@ -13,19 +13,15 @@
     </div>
   </div>
 
+  <%= turbo_stream_from @conversation, :messages %>
+
   <!-- messages list section -->
-  <div class="flex-1 px-4 pt-4 overflow-y-auto">
-    <% if @conversation.messages.present? %>
-      <%= render @conversation.messages %>
-    <% else %>
-      <div>
-        Hey, You have not message with <%= @conversation.recipient.name %>
-      </div>
-    <% end %>
-  </div>
+  <%= tag.div id: "#{dom_id(@conversation)}_messages", class:"flex-1 px-4 pt-4 overflow-y-auto" do %>
+    <%= render @conversation.messages || "Currently no messages" %>
+  <% end %>
 
   <!-- new messages form section -->
-  <div class="flex-shrink-0 px-2 bg-blue-300">
-    form
+  <div class="flex-shrink-0 px-2">
+    <%= render partial: 'private/messages/form', locals: { message: @conversation.messages.new, messagable: @conversation } %>
   </div>
 </div>

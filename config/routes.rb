@@ -17,9 +17,11 @@ Rails.application.routes.draw do
 
   namespace :private do
     resources :conversations do
-      resources :messages, only: [:create, :destroy]
+      resources :messages, only: :create, module: :conversations
     end
   end
+
+  # resources :messages, only: [:index, :edit, :update, :destroy]
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

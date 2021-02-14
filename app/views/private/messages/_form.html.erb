@@ -1,0 +1,7 @@
+<%= form_with model: message, url: private_conversation_messages_path(messagable.id), id: dom_id(messagable) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+
+  <%= f.rich_text_area :message_body %>
+  <%= f.submit "Send" %>
+  <%= link_to('Cancel', message, class: '') if f.object.persisted? %>
+<% end %>
