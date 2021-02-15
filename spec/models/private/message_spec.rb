@@ -9,7 +9,7 @@ RSpec.describe Private::Message, type: :model do
     end
 
     it 'not valid without message body' do
-      message.body = ''
+      message.message_body = ''
       expect(message).to_not be_valid 
     end
 
@@ -18,8 +18,8 @@ RSpec.describe Private::Message, type: :model do
       expect(message).to_not be_valid 
     end
 
-    it 'not valid without conversation_id body' do
-      message.conversation = nil
+    it 'not valid without messagable polymorphic' do
+      message.messagable = nil
       expect(message).to_not be_valid 
     end
   end

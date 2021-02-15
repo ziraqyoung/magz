@@ -10,7 +10,7 @@ FactoryBot.define do
       end
 
       after(:create) do |private_conversation, evaluator|
-        create_list(:private_message, evaluator.messages_count, conversation: private_conversation)
+        create_list(:private_message, evaluator.messages_count, messagable: private_conversation)
       end
     end
   end
