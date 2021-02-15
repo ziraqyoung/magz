@@ -10,4 +10,19 @@ RSpec.describe Private::Conversation, type: :model do
       expect(conversation.count).to eq(1)
     end
   end
+
+  context "methods" do
+    it "returns the opposed user of a conversation" do
+      user1 = create(:user)
+      user2 = create(:user)
+
+      conversation = create(:private_conversation, recipient: user1, sender: user2)
+      opposed_user = conversation.opposed_user(user1)
+      expect(opposed_user).to eq user2
+
+      # Ensure works in both direction
+      opposed_user = conversation.opposed_user(user2)
+      expect(opposed_user).to eq user1
+    end
+  end
 end
