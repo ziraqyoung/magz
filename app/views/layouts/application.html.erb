@@ -13,19 +13,15 @@
   </head>
 
   <body class="flex px-4 py-8 text-gray-900 bg-blue-800">
-    <nav class="z-30 hidden w-1/6 overflow-x-hidden sm:block"
-      <%= render "layouts/navigation" %>
-    </nav>
-
-    <div class="flex flex-col flex-1 min-w-0 min-h-screen px-2 pt-4 pb-10 overflow-hidden overflow-x-auto bg-gray-200 border-2 md:px-4 space-y-5 rounded-3xl">
-      <div class="relative flex items-center justify-between flex-shrink-0 border-b border-gray-400">
-        <div>
-          top bar
+    <div class="flex flex-col flex-1 min-w-0 min-h-screen px-2 pt-4 pb-10 mx-auto overflow-hidden overflow-x-auto bg-gray-200 border-2 max-w-screen-lg md:px-4 space-y-5 rounded-3xl">
+      <div class="relative flex items-center justify-between flex-shrink-0 pb-3 border-b border-gray-400">
+        <div class="flex items-center justify-between w-full">
+          <%= render "layouts/navigation" %>
         </div>
 
         <% if flash.any? %>
           <% flash.each do |message_type, message| %>
-            <div class="absolute inline-block inset-y-8 flash">
+            <div class="absolute inline-block pt-8 inset-y-8 flash">
               <p class="<%= message_type %> px-4 py-2 font-medium text-center text-white col-span-full rounded-2xl"><%= message %></p>
             </div>
           <% end %>

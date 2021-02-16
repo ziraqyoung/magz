@@ -1,3 +1,5 @@
+<%= link_to "Pings", private_conversations_path, class: "block px-4 py-2 text-sm text-white "%>
+
 <button class="p-1 text-gray-400 bg-gray-800 rounded-full hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
   <span class="sr-only">View notifications</span>
   <!-- Heroicon name: bell -->
@@ -15,16 +17,7 @@
       <span class="sr-only">Open user menu</span>
       <%= render 'shared/user_avatar', name: current_user.name %>
     </summary>
-  <!--
-    Profile dropdown panel, show/hide based on dropdown state.
 
-    Entering: "transition ease-out duration-100"
-    From: "transform opacity-0 scale-95"
-    To: "transform opacity-100 scale-100"
-    Leaving: "transition ease-in duration-75"
-    From: "transform opacity-100 scale-100"
-    To: "transform opacity-0 scale-95"
-  -->
   <div class="absolute right-0 w-48 py-1 mt-2 overflow-hidden bg-white shadow-lg origin-top-right rounded-md ring-1 ring-black ring-opacity-5" role="menu" aria-orientation="vertical" aria-labelledby="user-menu">
     <span class="block px-4 py-2 -mt-1 font-bold text-center text-white bg-gray-400 border-b-2"><%= current_user.name %></span>
     <%= link_to "Edit Profile", edit_user_registration_path, class: "block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"  %>
@@ -33,4 +26,3 @@
 </details>
 
 
-<%= link_to "Pings", private_conversations_path, class: "block px-4 py-2 text-sm text-white "%>
