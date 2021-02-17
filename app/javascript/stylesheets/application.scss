@@ -76,4 +76,12 @@ details > summary::-webkit-details-marker {
   clear: both;
 }
 
+
+// trix editor
+.trix-wrapper {
+  trix-toolbar {
+    @apply hidden;
+  }
+}
+
 @import "tailwindcss/utilities";

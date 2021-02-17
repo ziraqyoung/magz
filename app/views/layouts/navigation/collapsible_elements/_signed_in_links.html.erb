@@ -18,7 +18,7 @@
       <%= render 'shared/user_avatar', name: current_user.name %>
     </summary>
 
-  <div class="absolute right-0 w-48 py-1 mt-2 overflow-hidden bg-white shadow-lg origin-top-right rounded-md ring-1 ring-black ring-opacity-5" role="menu" aria-orientation="vertical" aria-labelledby="user-menu">
+  <div class="absolute right-0 py-1 mt-2 overflow-hidden bg-white shadow-lg w-max origin-top-right rounded-md ring-1 ring-black ring-opacity-5" role="menu" aria-orientation="vertical" aria-labelledby="user-menu">
     <span class="block px-4 py-2 -mt-1 font-bold text-center text-white bg-gray-400 border-b-2"><%= current_user.name %></span>
     <%= link_to "Edit Profile", edit_user_registration_path, class: "block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"  %>
     <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"  %>

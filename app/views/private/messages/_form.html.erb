@@ -1,7 +1,27 @@
-<%= form_with model: message, url: private_conversation_messages_path(messagable.id), id: dom_id(messagable) do |f| %>
-  <%= render 'shared/error_messages', object: f.object %>
+<%= form_with model: message, url: private_conversation_messages_path(messagable.id), id: dom_id(messagable), class: 'space-y-3' do |f| %>
+  <div class="flex items-end pt-2 space-x-4">
+    <%= tag.div class: 'flex flex-col md:flex-row space-y-3 md:space-y-0 w-full space-x-4 trix-wrapper', data: {controller: 'rich-text' } do %>
+      <div class="flex md:flex-1 space-x-2">
+        <%= tag.div class: 'flex flex-shrink-0 items-end -mb-1 hidden', data: { "rich-text-target": "togglerWrapper" } do %>
+          <%= tag.button class: "block w-12 h-12 p-2 rounded-full focus:outline-none focus:ring-2", data: { "rich-text-target": "toggler", action: "click->rich-text#toggleEditor" } do %>
+            <span class="flex items-baseline justify-center">
+              <span class="text-2xl font-extrabold text-gray-500">T</span>
+              <span class="-ml-2 text-4xl font-extrabold text-gray-500">T</span>
+            </span>
+          <% end %>
+        <% end %>
 
-  <%= f.rich_text_area :message_body %>
-  <%= f.submit "Send" %>
-  <%= link_to('Cancel', message, class: '') if f.object.persisted? %>
+        <div class="flex-1 overflow-x-auto">
+          <%= f.rich_text_area :message_body, data: { "rich-text-target": "editor" }, class: 'w-full min-h-0' %>
+        </div>
+
+      </div>
+
+      <div class="self-center flex-shrink-0 md:self-end">
+        <%= f.submit "Send", class: "inline-block px-4 py-2 text-sm font-semibold text-white bg-blue-700 hover:bg-opacity-80 transition-colors duration-150 rounded-lg" %>
+      </div>
+    <% end %>
+  </div>
+
+  <%= render 'shared/error_messages', object: f.object %>
 <% end %>
