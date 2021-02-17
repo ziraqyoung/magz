@@ -52,6 +52,7 @@ group :test do
   gem 'selenium-webdriver'
   gem 'rails-controller-testing', '~> 1.0', '>= 1.0.5'
   gem 'database_cleaner', '~> 1.8', '>= 1.8.5'
+  gem 'simplecov', '~> 0.21.2', require: false
 
   gem 'guard'
   gem 'guard-rspec', require: false
