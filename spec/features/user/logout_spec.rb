@@ -8,6 +8,9 @@ RSpec.feature 'Logout', type: :feature do
     visit root_path
     find("details#me_menu").click
     find("#me_menu a", text: 'Log out').click
-    expect(page).to have_selector("nav a", text: 'Login')
+    within "#top-nav" do
+      expect(page).to have_selector("a", text: 'Login')
+      expect(page).to have_selector("a", text: 'Signup')
+    end
   end
 end

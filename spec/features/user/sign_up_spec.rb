@@ -5,7 +5,9 @@ RSpec.feature 'Sign up', type: :feature do
 
   scenario "user navigates to the sign up page and signs up successfully" do
     visit root_path
-    find("nav a", text: 'Signup').click
+    within "#top-nav" do
+      find("a", text: 'Signup').click
+    end
     fill_in "user[name]", with: user.name
     fill_in "user[email]", with: user.email
     fill_in "user[password]", with: user.password

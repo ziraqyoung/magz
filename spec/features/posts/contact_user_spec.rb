@@ -17,11 +17,11 @@ RSpec.feature "Contact user", type: :feature do
         find('trix-editor').click.set('a' * 20)
         click_on 'Send a message'
       end
-      expect(page).to_not have_selector(".contact-user form")
+      expect(page).to_not have_selector("trix-editor")
       expect(page).to have_content('Message has been sent')
     end
 
-    scenario "see an already contacted user" do
+    scenario "see an already contacted user", js: true do
       create(:private_conversation_with_messages, recipient_id: post.user.id, sender_id: user.id)
       visit(post_path post)
       expect(page).to_not have_selector("trix-editor")

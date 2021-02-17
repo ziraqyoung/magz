@@ -6,7 +6,9 @@ RSpec.feature "Login",type: :feature do
   scenario "user navigates to the login page and signs in successfully", js: true do
     user
     visit root_path
-    find('nav a', text: 'Login').click
+    within "#top-nav" do
+      find('a', text: 'Login').click
+    end
     fill_in 'user[email]', with: user.email
     fill_in 'user[password]', with: user.password
     click_button "Sign in"
