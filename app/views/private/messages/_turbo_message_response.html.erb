@@ -1,5 +1,5 @@
 <%= tag.div \
-  data: { controller: 'message-renderer', "message-renderer-owner-value": "#{private_message.user.id}", "message-renderer-target": "floatDirection" },
+  data: { controller: 'message-renderer scroll-to-self', "message-renderer-owner-value": "#{private_message.user.id}", "message-renderer-target": "floatDirection" },
   class: "flex items-end mb-4 chat__box__text-box" do %>
 
   <div data-message-renderer-target="colorIdentifier" class="px-4 py-3 font-medium text-white rounded-l-md rounded-t-md">

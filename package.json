@@ -11,6 +11,7 @@
     "@tailwindcss/postcss7-compat": "^2.0.2",
     "autoprefixer": "^9",
     "postcss": "^7",
+    "smoothscroll-polyfill": "^0.4.4",
     "stimulus": "^2.0.0",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat",
     "trix": "^1.2.0"
