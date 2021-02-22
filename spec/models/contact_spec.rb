@@ -16,7 +16,7 @@ RSpec.describe Contact, type: :model do
     end
   end
 
-  context "Validatinos" do
+  context "Validations" do
     it 'is valid' do
       expect(contact).to be_valid
     end
