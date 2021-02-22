@@ -10,5 +10,40 @@ class User < ApplicationRecord
   has_many :private_messages, class_name: 'Private::Message'
   has_many :private_conversations, foreign_key: :sender_id, class_name: 'Private::Conversation'
 
+  # contacts is a join model, (allows has_many :through)
   has_many :contacts
+  has_many :all_received_contact_requests, class_name: 'Contact', foreign_key: 'contact_id'
+
+  has_many :accepted_sent_contact_requests,
+           -> { where(contacts: { accepted: true }) },
+           through: :contacts, source: :contact
+  has_many :accepted_received_contact_requests,
+           -> { where(contacts: { accepted: true }) },
+           through: :all_received_contact_requests, source: :user
+
+  has_many :pending_sent_contact_requests,
+           -> { where(contacts: { accepted: false }) },
+           through: :contacts, source: :contact
+
+  has_many :accepted_received_contact_requests,
+           -> { where(contacts: { accepted: true }) },
+           through: :all_received_contact_requests, source: :user
+  has_many :pending_received_contact_requests,
+           -> { where(contacts: { accepted: false }) },
+           through: :all_received_contact_requests, source: :user
+
+  # gets all your contacs
+  def all_active_users
+    accepted_sent_contact_requests | accepted_received_contact_requests
+  end
+
+  # gets all pending sent and receives contacts
+  def pending_contacts
+    pending_sent_contact_requests | pending_received_contact_requets
+  end
+
+  # gets a Contact record
+  def contact(contact)
+    Contact.where(user: self, contact: contact)[0]
+  end
 end
