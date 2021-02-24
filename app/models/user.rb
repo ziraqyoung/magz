@@ -33,13 +33,13 @@ class User < ApplicationRecord
            through: :all_received_contact_requests, source: :user
 
   # gets all your contacs
-  def all_active_users
+  def all_active_contacts
     accepted_sent_contact_requests | accepted_received_contact_requests
   end
 
   # gets all pending sent and receives contacts
   def pending_contacts
-    pending_sent_contact_requests | pending_received_contact_requets
+    pending_sent_contact_requests | pending_received_contact_requests
   end
 
   # gets a Contact record

@@ -69,6 +69,12 @@ RSpec.describe User, type: :model do
       contact_requests
     end
 
+    describe "#all_active_contacts" do
+      it 'gets only accepted contact requests' do
+        expect(@user.all_active_contacts.count).to eq(2)
+      end
+    end
+
     describe "#accepted_sent_contact_requests" do
       it 'gets only accepted contact requests' do
         expect(@user.accepted_sent_contact_requests.count).to eq(1)
