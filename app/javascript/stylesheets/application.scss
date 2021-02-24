@@ -45,18 +45,18 @@ details > summary::-webkit-details-marker {
 }
 
 .flash {
-  p.alert {
+  .alert {
     @apply bg-rose-400
   }
-  p.notice {
+  .notice {
     @apply bg-teal-400
   }
 
-  p.success {
+  .success {
     @apply bg-green-400
   }
 
-  p.warning {
+  .warning {
     @apply bg-amber-400
   }
 }
@@ -82,6 +82,10 @@ details > summary::-webkit-details-marker {
   trix-toolbar {
     @apply hidden;
   }
+}
+
+.btn-focusable {
+  @apply bg-transparent hover:opacity-75 focus:outline-none focus:ring focus:ring-cyan-300 p-1 rounded-full
 }
 
 @import "tailwindcss/utilities";

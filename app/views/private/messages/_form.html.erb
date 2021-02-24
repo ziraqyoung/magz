@@ -3,8 +3,8 @@
     <%= tag.div class: 'flex flex-col md:flex-row space-y-3 md:space-y-0 w-full space-x-4 trix-wrapper', data: {controller: 'rich-text' } do %>
       <div class="flex md:flex-1 space-x-2">
         <%= tag.div class: 'flex flex-shrink-0 items-end -mb-1 hidden', data: { "rich-text-target": "togglerWrapper" } do %>
-          <%= tag.button class: "block w-12 h-12 p-2 rounded-full focus:outline-none focus:ring-2", data: { "rich-text-target": "toggler", action: "click->rich-text#toggleEditor" } do %>
-            <span class="flex items-baseline justify-center">
+          <%= tag.button class: "btn-focusable flex", data: { "rich-text-target": "toggler", action: "click->rich-text#toggleEditor" } do %>
+            <span class="flex items-baseline justify-center w-10 h-10">
               <span class="text-2xl font-extrabold text-gray-500">T</span>
               <span class="-ml-2 text-4xl font-extrabold text-gray-500">T</span>
             </span>
@@ -12,9 +12,8 @@
         <% end %>
 
         <div class="flex-1 overflow-x-auto">
-          <%= f.rich_text_area :message_body, data: { "rich-text-target": "editor" }, class: 'w-full min-h-0' %>
+          <%= f.rich_text_area :message_body, data: { "rich-text-target": "editor" }, class: 'w-full min-h-0 p-2' %>
         </div>
-
       </div>
 
       <div class="self-center flex-shrink-0 md:self-end">
