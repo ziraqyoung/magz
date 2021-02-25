@@ -10,6 +10,16 @@ class ContactsController < ApplicationController
   end
 
   def update
+    @contact = Contact.find(params[:id])
+
+    respond_to do |format|
+      if @contact.update(accepted: true)
+        format.html { redirect_back(fallback_location: root_path, notice: "Contact request accepted") }
+      else
+        format.html { redirect_back(fallback_location: root_path, notice: "Contact request not accepted") }
+      end
+    end
+
   end
 
   def destroy

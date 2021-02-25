@@ -1,0 +1,10 @@
+<div class="flex items-center justify-between flex-shrink-0 space-x-2">
+  <div class="flex items-center space-x-4">
+    <%= render 'shared/user_avatar', name: @recipient.name %>
+    <span class="text-sm font-semibold text-gray-600"><%= @recipient.name %></span>
+  </div>
+
+  <div class="pt-2 text-sm text-gray-600 md:text-base space-x-2 md:pt-0">
+    <%= render add_to_contacts_partial_path(@contact) %>
+  </div>
+</div>

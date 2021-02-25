@@ -88,4 +88,8 @@ details > summary::-webkit-details-marker {
   @apply bg-transparent hover:opacity-75 focus:outline-none focus:ring focus:ring-cyan-300 p-1 rounded-full
 }
 
+turbo-cable-stream-source {
+  @apply hidden;
+}
+
 @import "tailwindcss/utilities";
