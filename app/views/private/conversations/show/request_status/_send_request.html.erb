@@ -1,0 +1,9 @@
+<div id="panel-add-to-contacts" class="pt-3 text-gray-600 space-x-1">
+  <span>
+    <span class="font-semibold"><%= @recipient.name %></span> is not in you contacts,
+  </span> 
+
+  <span class="inline-block">
+    <%= button_to 'Add to Contacts', contacts_path, params: { contact_id: private_conv_recipient(@conversation).id, conversation_id: @conversation.id }, class: 'text-blue-500 underline bg-transparent cursor-pointer font-semibold hover:no-underline focus:outline-none focus:no-underline' %>
+  </span>
+</div>

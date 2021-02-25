@@ -1,0 +1,11 @@
+<div id="panel-add-to-contacts" class="flex flex-col pt-3 text-gray-600 md:flex-row md:justify-center space-y-2 md:space-y-0 md:space-x-4">
+  <span class="text-center">
+    <span class="font-semibold"><%= @recipient.name %></span> sent you a contact request 
+  </span> 
+
+  <span class="flex items-center sm:justify-center space-x-4">
+    <%= button_to 'Accept', contact_path(@contact), params: { conversation_id: @conversation.id }, method: :patch, class: 'text-blue-500 underline bg-transparent cursor-pointer font-semibold hover:no-underline focus:outline-none focus:no-underline' %>
+
+    <%= button_to 'Decline', contact_path(@contact), params: { conversation_id: @conversation.id }, method: :delete, class: 'text-rose-500 underline bg-transparent cursor-pointer font-semibold hover:no-underline focus:outline-none focus:no-underline' %>
+  </span>
+</div>

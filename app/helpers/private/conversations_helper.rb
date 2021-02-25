@@ -17,6 +17,28 @@ module Private::ConversationsHelper
     Contact.find_by_users(current_user.id, recipient.id)
   end
 
+  def unaccepted_contact_request_partial_path(contact)
+    if unaccepted_contact_exists(contact)
+      if request_sent_by_user(contact)
+        # if contact request was sent by user or recipient
+        'private/conversations/show/request_status/sent_by_current_user'
+      else
+        'private/conversations/show/request_status/sent_by_recipient'
+      end
+    else
+      # contact request was not sent by any user
+      'shared/empty_partial'
+    end
+  end
+
+  def not_contact_no_request_partial_path(contact)
+    if recipient_is_contact? == false && unaccepted_contact_exists(contact) == false
+      'private/conversations/show/request_status/send_request'
+    else
+      'shared/empty_partial'
+    end
+  end
+
   private
 
     def recipient_is_contact?

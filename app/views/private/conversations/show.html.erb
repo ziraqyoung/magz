@@ -8,8 +8,8 @@
 <div class="relative flex flex-col max-h-screen px-4 py-6 overflow-hidden bg-white shadow-md h-5/6 col-span-full space-y-3 divide-y-2 md:col-span-10 md:col-start-2 rounded-md">
   <!-- top section -->
   <%= render 'private/conversations/show/heading' %>
-
   <%= turbo_stream_from @conversation, :messages %>
+  <%= render 'private/conversations/show/request_status' %>
 
   <!-- messages list section -->
   <%= tag.div id: "#{dom_id(@conversation)}_messages", class:"flex-1 px-4 pt-4 overflow-y-auto" do %>
