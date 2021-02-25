@@ -12,7 +12,7 @@
         <% end %>
 
         <div class="flex-1 overflow-x-auto">
-          <%= f.rich_text_area :message_body, data: { "rich-text-target": "editor" }, class: 'w-full min-h-0 p-2' %>
+          <%= f.rich_text_area :message_body, data: { "rich-text-target": "editor" }, class: 'w-full min-h-0 p-2 bg-gray-100 text-lg font-mono border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500', placeholder: "Type a message....." %>
         </div>
       </div>
 
