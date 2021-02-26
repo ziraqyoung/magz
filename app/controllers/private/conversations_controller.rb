@@ -18,11 +18,11 @@ class Private::ConversationsController < ApplicationController
       @conversation.messages.create message_body: params[:message_body], user: current_user
 
       respond_to do |format|
-        format.html { redirect_to post, success: 'Message has been sent' }
+        format.html { redirect_to @conversation, success: 'Message has been sent' }
       end
     else
       respond_to do |format|
-        format.html { redirect_to post, alert: 'Message has not been sent' }
+        format.html { redirect_to @conversation, alert: 'Message has not been sent' }
       end
     end
   end

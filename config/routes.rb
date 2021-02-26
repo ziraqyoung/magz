@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   end
 
   namespace :private do
-    resources :conversations do
+    resources :conversations, only: [:index, :create, :show] do
       resources :messages, only: :create, module: :conversations
     end
   end
