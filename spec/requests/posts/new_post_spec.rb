@@ -3,9 +3,9 @@ include Warden::Test::Helpers
 
 RSpec.describe "new", type: :request do
   context 'non-signed in users' do
-    it 'it redirects to root path' do
+    it 'it redirects to login path' do
       get '/posts/new'
-      expect(response).to redirect_to(login_path)
+      expect(response).to require_login
     end
   end
 
