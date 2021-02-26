@@ -15,14 +15,21 @@ class Private::ConversationsController < ApplicationController
     @conversation = Private::Conversation.new(sender_id: current_user.id, recipient_id: recipient_id)
 
     if @conversation.save
-      @conversation.messages.create message_body: params[:message_body], user: current_user
+      msg = @conversation.messages.new message_body: params[:message_body], user: current_user
 
-      respond_to do |format|
-        format.html { redirect_to @conversation, success: 'Message has been sent' }
+      if  msg.save
+        respond_to do |format|
+          format.html { redirect_to @conversation, success: 'Message has been sent' }
+        end
+      else
+        respond_to do |format|
+          format.html { redirect_to @conversation, notice: 'Message not sent, You can send a new one anyway' }
+        end
       end
+
     else
       respond_to do |format|
-        format.html { redirect_to @conversation, alert: 'Message has not been sent' }
+        format.html { redirect_to post, alert: 'Conversation could not be saved' }
       end
     end
   end
