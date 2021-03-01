@@ -1,2 +1,1 @@
-web: bin/rails server
-redis: redis-server
+web: bundle exec puma -C config/puma.rb
