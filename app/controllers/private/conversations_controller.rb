@@ -19,16 +19,19 @@ class Private::ConversationsController < ApplicationController
 
       if  msg.save
         respond_to do |format|
+          format.turbo_stream
           format.html { redirect_to @conversation, success: 'Message has been sent' }
         end
       else
         respond_to do |format|
+          format.turbo_stream
           format.html { redirect_to @conversation, notice: 'Message not sent, You can send a new one anyway' }
         end
       end
 
     else
       respond_to do |format|
+        format.turbo_stream
         format.html { redirect_to post, alert: 'Conversation could not be saved' }
       end
     end

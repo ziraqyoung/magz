@@ -10,7 +10,7 @@ RSpec.feature "Contact user", type: :feature do
       sign_in user
     end
 
-    scenario "successfull sends a message to a post's author" do
+    scenario "successfull creates a conversation & sends a message to a post's author", js: true do
       visit(post_path post)
       expect(page).to have_selector(".contact-user form")
       within '.contact-user form' do
@@ -18,14 +18,24 @@ RSpec.feature "Contact user", type: :feature do
         click_on 'Send a message'
       end
       expect(page).to_not have_selector(".contact-user trix-editor")
-      expect(page).to have_content('Message has been sent')
+      expect(page).to have_content('Go to Messages')
+    end
+
+    scenario "successfull create a conversation to a post's author, even when no message was sent", js: true do
+      visit(post_path post)
+      expect(page).to have_selector(".contact-user form")
+      within '.contact-user form' do
+        click_on 'Send a message'
+      end
+      expect(page).to_not have_selector(".contact-user trix-editor")
+      expect(page).to have_content('Go to Messages')
     end
 
     scenario "see an already contacted user", js: true do
       create(:private_conversation_with_messages, recipient_id: post.user.id, sender_id: user.id)
       visit(post_path post)
       expect(page).to_not have_selector(".contact-user trix-editor")
-      expect(page).to have_selector(".contact-user .contacted-user", text: 'You are in touch with this user')
+      expect(page).to have_content('Go to Messages')
     end
   end
 

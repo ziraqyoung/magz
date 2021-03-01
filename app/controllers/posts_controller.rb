@@ -30,7 +30,8 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
 
     if user_signed_in?
-      @message_has_been_sent = conversation_exist?
+      @conversation = get_conversation.first
+      @message_has_been_sent = @conversation.present?
     end
   end
 
@@ -65,7 +66,7 @@ class PostsController < ApplicationController
                                 }).call
     end
 
-    def conversation_exist?
-      Private::Conversation.between_users(current_user.id, @post.user.id).present?
+    def get_conversation
+      Private::Conversation.between_users(current_user.id, @post.user.id)
     end
 end
