@@ -3,7 +3,7 @@
       <%= link_to "Hobby", hobby_posts_path, class: 'text-xl underline text-blue-600 hover:opacity-80 transition-colors font-bold duration-150' %>
     </h3>
     <div class="px-4 grid grid-cols-12 gap-6 auto-rows-fr">
-      <%= render @hobby_posts %>
+      <%= render partial: 'posts/post', collection: @hobby_posts, cached: true %>
       <%= render no_posts_partial_path(@hobby_posts) %>
     </div>
   </div>
@@ -13,7 +13,7 @@
       <%= link_to "Study", study_posts_path, class: 'text-xl underline text-blue-600 hover:opacity-80 transition-colors font-bold duration-150' %>
     </h3>
     <div class="px-4 grid grid-cols-12 gap-6 auto-rows-fr">
-      <%= render @study_posts %>
+      <%= render partial: 'posts/post', collection: @study_posts, cached: true %>
       <%= render no_posts_partial_path(@study_posts) %>
     </div>
   </div>
@@ -23,7 +23,7 @@
       <%= link_to "Team", team_posts_path, class: 'text-xl underline text-blue-600 hover:opacity-80 transition-colors font-bold duration-150' %>
     </h3>
     <div class="px-4 grid grid-cols-12 gap-6 auto-rows-fr">
-      <%= render @team_posts %>
+      <%= render partial: 'posts/post', collection: @team_posts, cached: true %>
       <%= render no_posts_partial_path(@team_posts) %>
     </div>
   </div>
