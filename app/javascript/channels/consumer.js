@@ -3,4 +3,4 @@
 
 import { createConsumer } from "@rails/actioncable"
 
-export default createConsumer('wss://magzapp.herokuapp.com/cable')
+export default createConsumer()
