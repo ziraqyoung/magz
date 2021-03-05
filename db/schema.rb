@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_19_073608) do
+ActiveRecord::Schema.define(version: 2021_03_05_180613) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -70,6 +70,31 @@ ActiveRecord::Schema.define(version: 2021_02_19_073608) do
     t.index ["user_id"], name: "index_contacts_on_user_id"
   end
 
+  create_table "group_conversations", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "group_conversations_users", id: false, force: :cascade do |t|
+    t.integer "conversation_id", null: false
+    t.integer "user_id", null: false
+    t.index ["conversation_id"], name: "index_group_conversations_users_on_conversation_id"
+    t.index ["user_id"], name: "index_group_conversations_users_on_user_id"
+  end
+
+  create_table "group_messages", force: :cascade do |t|
+    t.string "content", null: false
+    t.string "added_new_users"
+    t.string "seen_by"
+    t.bigint "user_id"
+    t.bigint "conversation_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["conversation_id"], name: "index_group_messages_on_conversation_id"
+    t.index ["user_id"], name: "index_group_messages_on_user_id"
+  end
+
   create_table "posts", force: :cascade do |t|
     t.string "title"
     t.text "content"
@@ -118,6 +143,7 @@ ActiveRecord::Schema.define(version: 2021_02_19_073608) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "contacts", "users"
+  add_foreign_key "group_messages", "users"
   add_foreign_key "posts", "categories"
   add_foreign_key "posts", "users"
   add_foreign_key "private_messages", "users"

@@ -47,7 +47,20 @@ RSpec.describe User, type: :model do
       expect(association.options[:through]).to eq(:all_received_contact_requests)
       expect(association.options[:source]).to eq(:user)
     end
+
+    it 'has_many group messages' do
+      association = described_class.reflect_on_association(:group_messages)
+      expect(association.macro).to eq(:has_many)
+      expect(association.options[:class_name]).to eq('Group::Message')
+    end
+
+    it 'has_and_belongs_to_many group_conversations' do
+      association = described_class.reflect_on_association(:group_conversations)
+      expect(association.macro).to eq(:has_and_belongs_to_many)
+      expect(association.options[:class_name]).to eq('Group::Conversation')
+    end
   end
+
   context "Methods" do
     let(:user) { build(:user) }
     let(:contact_requests) do
