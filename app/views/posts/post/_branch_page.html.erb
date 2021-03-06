@@ -1,13 +1,13 @@
 <div class="">
   <%= link_to post_path(post), class: 'w-full block hover:bg-blue-100' do %>
-    <div class="flex items-center px-2 py-3 sm:px-5 space-x-2">
+    <div class="flex items-center px-2 py-1 sm:px-5 space-x-2">
       <%= render 'shared/user_avatar', name: post.user.name %>
       <div class="flex justify-center space-x-4">
         <div class="sr-only">
           <%= post.user.name %>
         </div>
 
-        <div class="truncate">
+        <div class="text-xs truncate">
           <%= post.title %>
         </div>
       </div>
