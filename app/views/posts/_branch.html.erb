@@ -1,4 +1,4 @@
-<div class="p-8 bg-white border-2 rounded-lg shadow-xl col-span-full md:col-span-10 md:col-start-2 space-y-4">
+<div class="px-4 py-6 bg-white border-2 rounded-lg shadow-xl col-span-full md:col-span-10 md:col-start-2 space-y-4">
   <div class="flex flex-col space-y-4">
     <h2 class="text-2xl font-semibold text-center text-gray-800">
       <%= page_title %>
@@ -20,7 +20,7 @@
   </div>
 
   <div class="overflow-hidden border-2 rounded-md">
-    <div class="overflow-x-auto text-gray-800 divide-y divide-gray-200">
+    <div class="pb-2 overflow-x-auto text-gray-800 divide-y divide-gray-200">
       <%= render partial: 'posts/branch_page_post', collection: @posts, as: :post, cached: true %>
 
       <%= render no_posts_partial_path(@posts) %>
