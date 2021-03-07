@@ -11,10 +11,10 @@ export default class extends Controller {
     if (this.idForMeta !== false) {
       if (this.ownerValue === this.idForMeta) {
         this.floatDirectionTarget.classList.add('float-right')
-        this.colorIdentifierTarget.classList.add('bg-fuchsia-800')
+        this.colorIdentifierTarget.classList.add('bg-gradient-to-br', 'from-gray-900', 'via-cyan-800', 'to-gray-500')
       } else {
         this.floatDirectionTarget.classList.add('float-left', 'flex-row-reverse')
-        this.colorIdentifierTarget.classList.add('bg-gray-800')
+        this.colorIdentifierTarget.classList.add('bg-gradient-to-br', 'from-gray-500', 'via-black', 'to-gray-900')
       }
     }
   }
