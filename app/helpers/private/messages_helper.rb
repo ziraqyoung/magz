@@ -12,8 +12,4 @@ module Private::MessagesHelper
       'shared/empty_partial'
     end
   end
-
-  def sent_or_received(message, user)
-    user.id == message.user.id ? 'float-right' : 'float-left flex-row-reverse'
-  end
 end

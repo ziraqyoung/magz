@@ -18,18 +18,4 @@ RSpec.describe Private::MessagesHelper, type: :helper do
       expect(helper.private_message_date_check message, previous_message).to eq('shared/empty_partial')
     end
   end
-
-  context "#sent_or_received" do
-    let(:user) { create(:user) }
-    let(:message) { create(:private_message) }
-
-    it "returns `float-right`" do
-      message.update(user_id: user.id)
-      expect(helper.sent_or_received message, user).to eq('float-right')
-    end
-
-    it "returns `float-left flex-row-reverse`" do
-      expect(helper.sent_or_received message, user).to  eq('float-left flex-row-reverse')
-    end
-  end
 end

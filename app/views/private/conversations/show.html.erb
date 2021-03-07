@@ -1,6 +1,4 @@
-<%= content_for :current_person do %>
-  <meta name="current-person-id" content="<%= current_user.id %>">
-<% end %>
+<%= render 'shared/current_user_meta_tags' %>
 
 <% @recipient = private_conv_recipient(@conversation) %>
 <% @contact = get_contact_record(@recipient) %>
@@ -13,7 +11,7 @@
 
   <!-- messages list section -->
   <%= tag.div id: "#{dom_id(@conversation)}_messages", class:"flex-1 px-4 pt-4 overflow-y-auto" do %>
-    <%= render @conversation.messages || "Currently no messages" %>
+    <%= render partial: 'private/messages/message', collection: @conversation.messages, as: :message, cached: true || "Currently no messages" %>
   <% end %>
 
   <!-- new messages form section -->

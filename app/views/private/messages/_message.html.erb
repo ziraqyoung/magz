@@ -1,13 +1,19 @@
-<%= render private_message_date_check(message, message.previous_message), locals: { message: message } %>
+<%= tag.div \
+  data: { controller: 'message-renderer scroll-to-self',
+          "message-renderer-owner-value": "#{message.user.id}",
+          "message-renderer-target": "floatDirection" },
+  class: "flex items-end mb-4 chat__box__text-box" do %>
 
-<div class="flex items-end <%= sent_or_received(message, current_user) %> mb-4 chat__box__text-box">
-  <div class="px-4 py-3 font-medium text-white <%= message.user == current_user ? 'bg-fuchsia-800' : 'bg-gray-800 text-white' %> rounded-l-md rounded-t-md">
-    <%= message.message_body %>
-    <div class="mt-1 text-xs text-gray-300"><%= time_ago_in_words message.created_at %></div>
+  <div data-message-renderer-target="colorIdentifier" class="px-3 py-1 text-white rounded-l-md rounded-t-md">
+    <span class="text-sm"><%= message.message_body %></span>
+    <%= time_tag message.created_at, class: 'mt-px' do %>
+      <small class="text-xs text-gray-300"><%= time_ago_in_words message.created_at %></span>
+    <% end %>
   </div>
 
-  <div class="relative flex-none hidden w-10 h-10 mx-3 sm:block">
+  <div class="relative flex-none hidden mx-3 sm:block">
     <%= render 'shared/user_avatar', name: message.user.name %>
   </div>
-</div>
+<% end %>
+
 <div class="clear-both"></div>
