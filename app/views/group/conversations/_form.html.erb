@@ -1,0 +1,12 @@
+<%= form_for @group_conversation, html: {class: 'flex flex-col space-y-2'} do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+
+  <div class="w-full">
+    <%= f.label :name, class: 'sr-only' %>
+    <%= f.text_field :name, class: 'text-input font-semibold', placeholder: "Name of the Group... eg. 'Hotwire and Rails'" %>
+  </div>
+
+  <div>
+    <%= f.submit "Save", class: 'btn btn--primary' %>
+  </div>
+<% end %>

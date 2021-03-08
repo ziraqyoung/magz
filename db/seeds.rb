@@ -60,6 +60,22 @@ def seed_posts
   end
 end
 
+
+def seed_group_conversations
+  puts "seeding groups"
+  user1 = User.first
+  user2 = User.second
+
+  user1.created_group_conversations.create(name: "Hotwire and Rails")
+  user1.created_group_conversations.create(name: "Rails 101")
+  user1.created_group_conversations.create(name: "Availabel for Hire")
+
+  user2.created_group_conversations.create(name: "Chelsea and Thoma Tuchel")
+  user2.created_group_conversations.create(name: "WWE Roman Reigns")
+  user2.created_group_conversations.create(name: "Laliga Santander")
+end
+
 seed_users
 seed_categories
 seed_posts
+seed_group_conversations

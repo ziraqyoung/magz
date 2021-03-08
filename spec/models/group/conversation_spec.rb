@@ -1,12 +1,19 @@
 require 'rails_helper'
 
 RSpec.describe Group::Conversation, type: :model do
-  let(:conversation) { build(:group_conversation) }
+  let(:conversation) { build(:group_conversation, name: 'hi') }
 
   context "Validation" do
     it 'not valid without name' do
       conversation.name = ''
       expect(conversation).to_not be_valid
+    end
+
+    it 'not valid with duplicate name' do
+      expect do
+        create(:group_conversation, name: 'hi')
+        create(:group_conversation, name: 'hi')
+      end.to raise_error(ActiveRecord::RecordInvalid)
     end
   end
 
