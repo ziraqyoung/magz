@@ -1,1 +1,11 @@
-<%= render partial: 'group/conversations/conversation', collection: @group_conversations, cached: true %>
+<div class="flex flex-col p-4 bg-white shadow-md col-span-full space-y-6 divide-y-2 md:col-span-10 md:col-start-2 rounded-md">
+  <div class="overflow-x-auto font-semibold text-gray-800 divide-y-2 divide-gray-200">
+    <% if @group_conversations.present? %>
+      <%= render partial: 'group/conversations/conversation', collection: @group_conversations, cached: true %>
+    <% else %>
+      <div class="text-gray-600">
+        currently no group conversations available
+      </div>
+    <% end %>
+  </div>
+</div>

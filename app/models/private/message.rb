@@ -12,8 +12,8 @@ class Private::Message < ApplicationRecord
     broadcast_append_later_to \
       [messagable, :messages],
       target: "#{dom_id(messagable)}_messages",
-      partial: 'private/messages/turbo_message_response',
-      locals: { private_message: self }
+      partial: 'private/messages/message',
+      locals: { message: self }
   end
 
   def previous_message

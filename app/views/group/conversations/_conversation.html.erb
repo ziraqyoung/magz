@@ -1,1 +1,4 @@
-<%= group_conversation.name %>
+<%= render 'shared/conversations/listings',  
+  listing_type: conversation,
+  listing_avatar_name: conversation.creator.name,
+  listing_name: conversation.name %>

@@ -1,15 +1,6 @@
 <% recipient = private_conv_recipient(conversation)  %>
 
-<div>
-  <%= link_to private_conversation_path(conversation), class: 'w-full block hover:bg-blue-100', data: { controller: 'initials-avatar', initials_avatar_name_value: recipient.name } do %>
-    <div class="flex items-center px-2 py-1 md:py-2 sm:px-5 space-x-4">
-      <div class="flex items-center justify-center flex-shrink-0 w-10 h-10 bg-blue-300 rounded-full" width="20" height="20" data-initials-avatar-target="avatar">
-        <span class="block text-xs font-bold text-white" data-initials-avatar-target="initials"></span>
-      </div>
-
-      <div class="flex justify-center space-x-4">
-        <div class="truncate"><%= recipient.name %></div>
-      </div>
-    </div>
-  <% end %>
-</div>
+<%= render 'shared/conversations/listings',  
+  listing_type: conversation,
+  listing_avatar_name: recipient.name,
+  listing_name: recipient.name %>
