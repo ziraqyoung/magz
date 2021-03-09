@@ -7,7 +7,7 @@ class Group::Message < ApplicationRecord
   belongs_to :conversation, class_name: 'Group::Conversation', foreign_key: 'conversation_id'
   belongs_to :user
 
-  validates :content, :user_id, :conversation_id, presence: true
+  validates :message_body, :user_id, :conversation_id, presence: true
 
   def previous_message
     previous_message_index = (self.conversation.messages.index(self)) - 1

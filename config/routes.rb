@@ -22,7 +22,9 @@ Rails.application.routes.draw do
   end
 
   namespace :group do
-    resources :conversations
+    resources :conversations, only: [:index, :create, :show] do
+    end
+    resources :messages, only: :create, module: :conversations
   end
 
   resources :contacts, only: [:index, :create, :destroy, :update ]

@@ -14,7 +14,7 @@ RSpec.describe Group::Message, type: :model do
 
   context 'Validations' do
     it "is not valid without a content" do 
-      message.content = nil
+      message.message_body = nil
       expect(message).not_to be_valid 
     end
 

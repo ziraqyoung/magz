@@ -1,1 +1,19 @@
-<%= @group_conversation.name %>
+<%= render 'shared/current_user_meta_tags' %>
+
+<div class="relative flex flex-col max-h-screen px-4 py-6 overflow-hidden bg-white shadow-md h-5/6 col-span-full space-y-3 divide-y-2 md:col-span-10 md:col-start-2 rounded-md">
+  <!-- top section -->
+  <%= render 'group/conversations/show/heading' %>
+
+  <%= turbo_stream_from @group_conversation, :messages %>
+
+  <!-- messages list section -->
+  <%= tag.div id: "#{dom_id(@group_conversation)}_messages", class:"flex-1 px-4 pt-4 overflow-y-auto" do %>
+    <%= render partial: 'shared/messages/message', collection: @group_conversation.messages, as: :message, cached: true || "Currently no messages" %>
+  <% end %>
+
+  <!-- new messages form section -->
+  <div class="flex-shrink-0 px-2">
+    <%# render partial: 'group/messages/form', locals: { message: @group_conversation.messages.new, messagable: @group_conversation } %>
+  </div>
+</div>
+

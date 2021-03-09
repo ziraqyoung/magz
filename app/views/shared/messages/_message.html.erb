@@ -1,0 +1,27 @@
+<%= tag.div \
+  data: { controller: 'message-renderer scroll-to-self',
+          "message-renderer-owner-value": "#{message.user.id}",
+          "message-renderer-target": "floatDirection" },
+  class: "flex items-end mb-4 chat__box__text-box" do %>
+
+  <div data-message-renderer-target="colorIdentifier" class="flex flex-col px-3 py-1 text-white space-y-1 rounded-l-md rounded-t-md">
+    <div class="flex items-center justify-between text-sm text-cyan-200 space-x-4">
+      <span>
+        <%= time_tag message.created_at do %>
+          <small><%= time_ago_in_words message.created_at %></span>
+        <% end %>
+      </span>
+      <span>
+        <%= message.user.name %>
+      </span>
+    </div>
+
+    <div class="font-mono text-lg font-medium"><%= message.message_body %></div>
+  </div>
+
+  <div class="relative flex-none hidden mx-3 sm:block">
+    <%= render 'shared/user_avatar', name: message.user.name %>
+  </div>
+<% end %>
+
+<div class="clear-both"></div>

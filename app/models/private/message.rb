@@ -12,7 +12,7 @@ class Private::Message < ApplicationRecord
     broadcast_append_later_to \
       [messagable, :messages],
       target: "#{dom_id(messagable)}_messages",
-      partial: 'private/messages/message',
+      partial: 'shared/messages/message',
       locals: { message: self }
   end
 

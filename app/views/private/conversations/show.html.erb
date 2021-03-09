@@ -11,7 +11,7 @@
 
   <!-- messages list section -->
   <%= tag.div id: "#{dom_id(@conversation)}_messages", class:"flex-1 px-4 pt-4 overflow-y-auto" do %>
-    <%= render partial: 'private/messages/message', collection: @conversation.messages, as: :message, cached: true || "Currently no messages" %>
+    <%= render partial: 'shared/messages/message', collection: @conversation.messages, as: :message, cached: true || "Currently no messages" %>
   <% end %>
 
   <!-- new messages form section -->
