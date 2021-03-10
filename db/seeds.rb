@@ -70,7 +70,7 @@ def seed_group_conversations
   user1.created_group_conversations.create(name: "Rails 101")
   user1.created_group_conversations.create(name: "Availabel for Hire")
 
-  user2.created_group_conversations.create(name: "Chelsea and Thoma Tuchel")
+  user2.created_group_conversations.create(name: "Chelsea and Thomas Tuchel")
   user2.created_group_conversations.create(name: "WWE Roman Reigns")
   user2.created_group_conversations.create(name: "Laliga Santander")
 end

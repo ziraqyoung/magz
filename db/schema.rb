@@ -81,7 +81,9 @@ ActiveRecord::Schema.define(version: 2021_03_09_063151) do
   create_table "group_conversations_users", id: false, force: :cascade do |t|
     t.integer "conversation_id", null: false
     t.integer "user_id", null: false
+    t.index ["conversation_id", "user_id"], name: "index_group_conversations_users_on_conversation_id_and_user_id", unique: true
     t.index ["conversation_id"], name: "index_group_conversations_users_on_conversation_id"
+    t.index ["user_id", "conversation_id"], name: "index_group_conversations_users_on_user_id_and_conversation_id", unique: true
     t.index ["user_id"], name: "index_group_conversations_users_on_user_id"
   end
 

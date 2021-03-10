@@ -31,4 +31,40 @@ RSpec.describe Group::Conversation, type: :model do
       expect(association.options[:dependent]).to eq(:destroy)
     end
   end
+
+  context "Callbacks" do
+    it 'add conversation creator to the list of conversation users' do
+      conversation.save
+      expect(conversation.users).to include(conversation.creator)
+    end
+  end
+
+  context 'Methods' do
+    let(:user1) { create(:user) }
+    let(:user2) { create(:user) }
+
+    describe '#add_user' do
+      it 'add a user to a conversation' do
+        conversation.save
+        conversation.add_user(user1)
+        expect(conversation.users).to include(user1, conversation.creator)
+        conversation.add_user(user1)
+        expect(conversation.users.count).to eq(2)
+      end
+
+      it 'doesnot add user to a conversation more than once' do
+        conversation.save
+        conversation.add_user(user1)
+        expect do
+          conversation.add_user(user1)
+        end.to change(conversation.users, :count).by(0)
+        expect do
+          conversation.add_user(user2)
+        end.to change(conversation.users, :count).by(1)
+        expect do
+          conversation.add_user(user2)
+        end.to change(conversation.users, :count).by(0)
+      end
+    end
+  end
 end
