@@ -5,17 +5,18 @@
   class: "flex items-end mb-4 chat__box__text-box" do %>
 
   <div data-message-renderer-target="colorIdentifier" class="flex flex-col px-3 py-1 text-white space-y-1 rounded-l-md rounded-t-md">
-    <div class="flex items-center justify-between text-sm text-cyan-200 space-x-4">
+    <div class="flex items-center justify-between text-sm font-semibold text-cyan-400 space-x-4">
       <span>
         <%= time_tag message.created_at do %>
           <small><%= time_ago_in_words message.created_at %></span>
         <% end %>
       </span>
+      <span class="text-xs">|</span>
+
       <span>
         <%= message.user.name %>
       </span>
     </div>
-
     <div class="font-mono text-lg font-medium"><%= message.message_body %></div>
   </div>
 

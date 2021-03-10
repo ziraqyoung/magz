@@ -1,5 +1,6 @@
 class Group::Message < ApplicationRecord
   default_scope { includes(:user) }
+  include ActionView::RecordIdentifier
 
   serialize :seen_by, Array
   serialize :added_new_users, Array
@@ -8,6 +9,14 @@ class Group::Message < ApplicationRecord
   belongs_to :user
 
   validates :message_body, :user_id, :conversation_id, presence: true
+
+  after_create_commit do
+    broadcast_append_later_to \
+      [conversation, :messages],
+      target: "#{dom_id(conversation)}_messages",
+      partial: 'shared/messages/message',
+      locals: { message: self }
+  end
 
   def previous_message
     previous_message_index = (self.conversation.messages.index(self)) - 1
