@@ -13,7 +13,7 @@
 
   <!-- new messages form section -->
   <div class="flex-shrink-0 px-2">
-    <%= render partial: 'group/messages/form', locals: { message: @group_conversation.messages.new} %>
+    <%= render join_group_partial_path(current_user), message: @group_conversation.messages.new %>
   </div>
 </div>
 

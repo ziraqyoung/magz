@@ -1,0 +1,2 @@
+<%= turbo_stream.replace('join-group', partial: 'group/messages/form', locals: { message: @group_conversation.messages.new }) %>
+<%= turbo_stream.append('group-users', partial: 'shared/user_avatar', locals: { name: current_user.name }) %>

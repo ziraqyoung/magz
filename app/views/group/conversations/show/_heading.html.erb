@@ -5,7 +5,9 @@
     </span>
   </div>
 
-  <div class="pt-2 text-sm text-gray-600 md:text-base space-x-2 md:pt-0">
-    other stuffs
+  <div id="group-users" class="flex items-center pt-2 overflow-hidden text-sm text-gray-600 md:text-base -space-x-2 md:pt-0">
+    <% @group_conversation.users.each do |user| %>
+      <%= render 'shared/user_avatar', name: user.name %>
+    <% end %>
   </div>
 </div>

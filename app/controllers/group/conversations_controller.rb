@@ -28,6 +28,16 @@ class Group::ConversationsController < ApplicationController
       end
   end
 
+  def join
+    @group_conversation = Group::Conversation.find(params[:id])
+    @group_conversation.add_user(current_user)
+
+    respond_to do |format|
+      format.turbo_stream
+      format.html { redirect_to @group_conversation, success: 'Joined successfully' }
+    end
+  end
+
   private
     def group_conversation_params
       params.require(:group_conversation).permit(:name)
