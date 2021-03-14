@@ -59,6 +59,12 @@ RSpec.describe User, type: :model do
       expect(association.macro).to eq(:has_and_belongs_to_many)
       expect(association.options[:class_name]).to eq('Group::Conversation')
     end
+
+    it 'has_many notifications' do
+      association = described_class.reflect_on_association(:notifications)
+      expect(association.macro).to eq(:has_many)
+      expect(association.options[:foreign_key]).to eq(:recipient_id)
+    end
   end
 
   context "Methods" do

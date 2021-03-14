@@ -37,6 +37,8 @@ class User < ApplicationRecord
   has_and_belongs_to_many :group_conversations, class_name: 'Group::Conversation'
   has_many :created_group_conversations, class_name: 'Group::Conversation'
 
+  has_many :notifications, foreign_key: :recipient_id
+
   # gets all your contacs
   def all_active_contacts
     accepted_sent_contact_requests | accepted_received_contact_requests
