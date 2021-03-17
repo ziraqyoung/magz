@@ -31,6 +31,7 @@ Rails.application.routes.draw do
   end
 
   resources :contacts, only: [:index, :create, :destroy, :update ]
+  resources :notifications, only: [:index, :create]
   # resources :messages, only: [:index, :edit, :update, :destroy]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
