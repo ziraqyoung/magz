@@ -24,6 +24,7 @@ gem 'image_processing', '~> 1.2'
 gem 'turbo-rails', '~> 0.5.9'
 gem 'devise', '~> 4.7', '>= 4.7.1'
 gem 'pagy', '~> 3.10'
+gem "view_component", require: "view_component/engine"
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
