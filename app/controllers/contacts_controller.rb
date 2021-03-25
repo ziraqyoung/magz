@@ -5,6 +5,8 @@ class ContactsController < ApplicationController
   def create
     @contact = current_user.contacts.create!(contact_id: params[:contact_id])
 
+    # send a notification to recipient
+
     respond_to do |format|
       format.turbo_stream
       format.html { redirect_back(fallback_location: root_path, notice: "Contact request has been sent, you will be notified when is is accepted") }

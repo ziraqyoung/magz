@@ -1,5 +1,13 @@
-<%= link_to notification.notifiable do %>
-  <%= notification.actor.name %>
-  <%= notification.action %>
-  <%= notification.notifiable.class.to_s.underscore.humanize.downcase %>
+<%= link_to notification.notifiable, class: 'flex space-x-2' do %>
+  <div class="block">
+    <%= notification.actor.name %>
+  </div>
+
+  <div class="block">
+    <%= notification.action %>
+  </div>
+
+  <div class="block">
+    <%= notification.notifiable.class.to_s.underscore.humanize.downcase %>
+  </div>
 <% end %>
