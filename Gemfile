@@ -12,7 +12,7 @@ gem 'puma', '~> 5.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
-gem 'webpacker', '~> 5.0'
+gem 'webpacker', github: 'rails/webpacker'
 # Use Redis adapter to run Action Cable in production
 gem 'hiredis', '~> 0.6.3'
 gem 'redis', '~> 4.0'
@@ -24,7 +24,8 @@ gem 'image_processing', '~> 1.2'
 gem 'turbo-rails', '~> 0.5.9'
 gem 'devise', '~> 4.7', '>= 4.7.1'
 gem 'pagy', '~> 3.10'
-gem "view_component", require: "view_component/engine"
+gem 'view_component', '~> 2.28', require: "view_component/engine"
+gem 'inline_svg', '~> 1.7', '>= 1.7.2'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false

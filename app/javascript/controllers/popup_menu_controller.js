@@ -6,7 +6,6 @@ export default class extends Controller {
 
   initialize() {
     if (this.hasLinkTarget) this.linkTarget.hidden = true;
-    this.observeMutations(this.removeTabstops, { childList: true });
   }
 
   connect() {
@@ -41,8 +40,6 @@ export default class extends Controller {
     await Promise.all(this.frameElements.map((frame) => frame.loaded));
 
     this.summaryElement?.setAttribute("aria-expanded", this.element.open);
-    this.removeTabstops();
-    this.focusInitial();
   }
 
   closeOnClickOutside({ target }) {
@@ -85,35 +82,6 @@ export default class extends Controller {
   // Private
   //
 
-  removeTabstops() {
-    this.itemTargets.forEach((target) => target.setAttribute("tabindex", "-1"));
-  }
-
-  async activateInitial() {
-    await this.focusInitial();
-    await nextFrame();
-    this.initialItem?.click();
-  }
-
-  async focusInitial() {
-    await nextFrame();
-
-    if (this.hasInputTarget) {
-      this.inputTarget.focus();
-    } else if (this.hasItems) {
-      this.initialItem.focus();
-    }
-  }
-
-  async focusPrevious() {
-    await nextFrame();
-    this.getItemInDirection(-1)?.focus();
-  }
-
-  async focusNext() {
-    await nextFrame();
-    this.getItemInDirection(+1)?.focus();
-  }
 
   getItemInDirection(direction) {
     const index = this.items.indexOf(document.activeElement) + direction;
