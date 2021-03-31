@@ -2,11 +2,12 @@ class ContactsController < ApplicationController
   before_action :redirect_if_not_signed_in
   before_action :set_recipient
 
+  include SaveNotification
+
   def create
     @contact = current_user.contacts.create!(contact_id: params[:contact_id])
-
-    # send a notification to recipient
-
+    save_notification(@contact, @contact.contact)
+    # save and send a notification to recipient
     respond_to do |format|
       format.turbo_stream
       format.html { redirect_back(fallback_location: root_path, notice: "Contact request has been sent, you will be notified when is is accepted") }
@@ -15,6 +16,7 @@ class ContactsController < ApplicationController
 
   def update
     @contact = Contact.find(params[:id])
+    # save notification
 
     respond_to do |format|
       if @contact.update(accepted: true)

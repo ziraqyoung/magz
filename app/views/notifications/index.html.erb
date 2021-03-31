@@ -1,5 +1,5 @@
 <div class="flex flex-col p-4 bg-white shadow-md col-span-full space-y-6 divide-y-2 md:col-span-10 md:col-start-2 rounded-md">
-  <div class="overflow-x-auto font-medium text-gray-800 divide-y-2 divide-gray-200">
-    <%= render @notifications %>
-  </div>
+  <%= turbo_frame_tag 'my_notification', class: 'overflow-x-auto block font-medium text-gray-800 divide-y-2 space-y-2 divide-gray-200' do %>
+    <%= render(@notifications) || "There are no new notifications" %>
+  <% end %>
 </div>

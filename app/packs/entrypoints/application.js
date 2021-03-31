@@ -11,8 +11,6 @@ import "channels"
 Rails.start()
 ActiveStorage.start()
 
-// import "stylesheets/application.scss"
-
 import "controllers"
 
 require("trix")

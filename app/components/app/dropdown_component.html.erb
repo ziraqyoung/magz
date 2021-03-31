@@ -1,0 +1,14 @@
+<details class="relative ml-3"
+         data-controller="popup-menu"
+         data-action="toggle->popup-menu#update focusin@window->popup-menu#closeOnFocusOutside click@window->popup-menu#closeOnClickOutside reset->popup-menu#close"
+         id="me_menu"
+         >
+         <summary class="relative flex text-sm text-indigo-800 list-none bg-transparent bg-white rounded-full cursor-pointer hover:text-indigo-600 hover:opacity-80 focus:outline-none focus:ring-2 focus:ring-opacity-50 focus:ring-offset-2 focus:ring-offset-indigo-600 focus:ring-indigo-500" id="user-menu" aria-haspopup="true">
+           <%= summary %>
+         </summary>
+
+         <div class="absolute right-0 py-1 mt-2 overflow-hidden bg-white shadow-lg w-max origin-top-right rounded-md ring-1 ring-black ring-opacity-5" role="menu" aria-orientation="vertical" aria-labelledby="user-menu">
+           <%= body %>
+         </div>
+</details>
+

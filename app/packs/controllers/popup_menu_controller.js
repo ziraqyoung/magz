@@ -81,14 +81,6 @@ export default class extends Controller {
 
   // Private
   //
-
-
-  getItemInDirection(direction) {
-    const index = this.items.indexOf(document.activeElement) + direction;
-
-    return wrapAroundAccess(this.items, index);
-  }
-
   get forceMenuOpen() {
     return (
       this.lockOnSelectionValue &&

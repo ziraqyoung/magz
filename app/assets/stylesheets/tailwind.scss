@@ -1,0 +1,124 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* @import "tailwindcss/base"; */
+/* @import "tailwindcss/components"; */
+/* @import "tailwindcss/utilities"; */
+
+details > summary::-webkit-details-marker {
+  display: none;
+}
+
+@layer components {
+  .pagy-nav, {
+    @apply inline-flex shadow-md;
+  }
+
+  .pagy-nav.pagination, {
+    @apply rounded-md;
+  }
+  .pagy-nav .page, {
+    @apply px-3 py-2 text-sm font-medium leading-tight text-gray-700;
+  }
+
+
+  .pagy-nav .active, {
+    @apply text-white bg-blue-700;
+  }
+
+  /* .pagy-nav .prev, { */
+    /* @apply text-gray-700; */
+  /* } */
+/*  */
+  /* .pagy-nav .prev, { */
+    /* @apply opacity-80; */
+  /* } */
+
+  .pagy-nav .next, {
+    @apply opacity-80;
+  }
+
+  .pagy-nav .disabled, {
+    @apply text-gray-400 cursor-not-allowed;
+  }
+
+  /* field with errors  */
+  .field_with_errors {
+    input, text-area, select {
+      @apply border border-red-600 text-rose-500 bg-rose-50;
+    }
+  }
+
+  .flash {
+    .alert {
+      @apply bg-rose-400
+    }
+    .notice {
+      @apply bg-cyan-400
+    }
+
+    .success {
+      @apply bg-green-400
+    }
+
+    .warning {
+      @apply bg-amber-400
+    }
+  }
+
+  /* chat box */
+  .chat__box__text-box {
+    max-width: 94%;
+  }
+
+  @screen md {
+    .chat__box__text-box {
+      max-width: 49%;
+    }
+  }
+
+  .clear-both {
+    clear: both;
+  }
+
+  /* trix editor */
+  .trix-wrapper {
+    trix-toolbar {
+      @apply hidden;
+    }
+  }
+
+  .btn-focusable {
+    @apply bg-transparent hover:opacity-75 focus:outline-none focus:ring focus:ring-cyan-300 p-1 rounded-full
+  }
+
+  .btn {
+    @apply w-full sm:w-auto flex-none text-lg leading-6 font-semibold py-2 px-3 border border-transparent rounded-md focus:ring-2 focus:ring-offset-2 focus:outline-none transition-colors duration-200
+  }
+
+  .btn--primary {
+    @apply bg-blue-900 hover:bg-blue-700 text-white focus:ring-offset-white focus:ring-blue-900
+  }
+
+  .btn--secondary {
+    @apply bg-gray-900 hover:bg-gray-700 text-white focus:ring-offset-white focus:ring-gray-900
+  }
+
+  .text-input {
+    @apply rounded-none relative block w-full px-4 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 
+  }
+
+   /* Rails classes styles */
+  .rails_button_to {
+    input[type='submit'] {
+      @apply w-full flex-none text-lg leading-6 font-semibold py-2 px-3 border bg-blue-900 hover:bg-blue-700 text-white focus:ring-offset-white focus:ring-blue-900 border-transparent rounded-md focus:ring-2 focus:ring-offset-2 focus:outline-none transition-colors duration-200
+
+    }
+  }
+
+  turbo-cable-stream-source {
+    @apply hidden;
+  }
+}
+

@@ -7,12 +7,18 @@ class Notification < ApplicationRecord
   scope :unread, -> { where(read_at: nil) }
 
   validates :actor, :recipient, presence: true
-  # Notes
-  # send current notification to the job
-  # with an after create callback
-  # after_create { NotificationBroadcastJob.perform_later(self) }
 
-  def self.for_user(recipient_id)
-    where(recipient_id: recipient_id)
+  # TODO: This just dont work
+  # replace with a partial
+  after_create_commit do
+    broadcast_replace_later_to \
+      "notifications.#{self.recipient.id}",
+      target: "notifications-count",
+      partial: 'notifications/notification_count',
+      locals: { notification_count: Notification.new_for_user(self.recipient.id).count }
+  end
+
+  def self.new_for_user(recipient_id)
+    where(recipient_id: recipient_id).unread
   end
 end
