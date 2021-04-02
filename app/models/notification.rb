@@ -5,6 +5,7 @@ class Notification < ApplicationRecord
   
   scope :latest, -> { order(created_at: :desc) }
   scope :unread, -> { where(read_at: nil) }
+  scope :read, -> { where.not(read_at: nil) }
 
   validates :actor, :recipient, presence: true
 
@@ -20,5 +21,9 @@ class Notification < ApplicationRecord
 
   def self.new_for_user(recipient_id)
     where(recipient_id: recipient_id).unread
+  end
+
+  def self.read_for_user(recipient_id)
+    where(recipient_id: recipient_id).read
   end
 end

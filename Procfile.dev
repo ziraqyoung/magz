@@ -1,2 +1,2 @@
 web: bin/rails server
-yarn: yarn start
+yarn-dev: yarn dev

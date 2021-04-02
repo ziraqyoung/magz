@@ -1,5 +1,13 @@
 <div class="flex flex-col p-4 bg-white shadow-md col-span-full space-y-6 divide-y-2 md:col-span-10 md:col-start-2 rounded-md">
-  <%= turbo_frame_tag 'my_notification', class: 'overflow-x-auto block font-medium text-gray-800 divide-y-2 space-y-2 divide-gray-200' do %>
-    <%= render(@notifications) || "There are no new notifications" %>
-  <% end %>
+  <div class="space-y-2">
+    <h3 class="text-xl font-semibold text-center">New Notifications</h3>
+    <%= turbo_frame_tag 'my_notification', class: 'overflow-x-auto block font-medium text-gray-800 divide-y-2 space-y-2 divide-gray-200' do %>
+      <%= render(partial: 'notifications/notification', collection: @unread_notifications, cached: true) || "There are no new notifications" %>
+    <% end %>
+  </div>
+
+  <div class="block overflow-x-auto font-medium text-gray-800 divide-y-2 space-y-2 divide-gray-200">
+    <h3 class="text-xl font-semibold text-center">Read Notifications</h3>
+    <%= render(partial: 'notifications/notification', collection: @read_notifications, cached: true) || "There are no past notifications" %>
+  </div>
 </div>
