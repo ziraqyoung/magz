@@ -12,6 +12,10 @@ export default class extends Controller {
     this.linkTargets.forEach(target => target.hidden = true)
   }
 
+  connect() {
+    console.log('running')
+  }
+
   // Actions
 
   async toggleDialog() {

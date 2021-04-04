@@ -1,4 +1,24 @@
-<%= render 'shared/conversations/listings',  
-  listing_type: conversation,
-  listing_avatar_name: conversation.creator.name,
-  listing_name: conversation.name %>
+<li>
+  <%= link_to conversation, class: "block p-4 border border-gray-200 rounded-lg hover:bg-blue-500 hover:border-transparent hover:shadow-lg group" do %>
+    <dl class="flex flex-col space-y-2">
+      <div>
+        <dt class="sr-only">Group Name</dt>
+        <dd class="font-medium text-black group-hover:text-white leading-6"><%= conversation.name %></dd>
+      </div>
+
+      <div>
+        <dt class="sr-only">Group Creator</dt>
+        <dd class="text-xs font-medium group-hover:text-blue-200 sm:mb-4 lg:mb-0 xl:mb-4">
+        <%= conversation.creator.name %>
+        </dd>
+      </div>
+
+      <div class="overflow-hidden">
+        <dt class="sr-only">Members</dt>
+        <dd class="flex justify-start -space-x-2 overflow-ellipsis">
+        <%= render partial: 'shared/user_avatar', collection: conversation.users.pluck(:name), as: :name %>
+        </dd>
+      </div>
+    </dl>
+  <% end %>
+</li>

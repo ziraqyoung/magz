@@ -16,16 +16,16 @@ class Group::ConversationsController < ApplicationController
   def create
     @group_conversation = current_user.created_group_conversations.build(group_conversation_params)
 
-      if @group_conversation.save
-        redirect_to @group_conversation, success: 'Group created successfully' 
-      else
-        respond_to do |format|
-          format.turbo_stream do
-            render turbo_stream: turbo_stream.replace(@group_conversation, partial: 'group/conversations/form' )
-          end
-          format.html { flash.now[:warning] = "Not created!"; render :new }
+    if @group_conversation.save
+      redirect_to @group_conversation, notice: "Group created successfully!" 
+    else
+      respond_to do |format|
+        format.turbo_stream do
+          render turbo_stream: turbo_stream.replace(@group_conversation, partial: 'group/conversations/form' )
         end
+        format.html { flash.now[:warning] = "Not created!"; render :new }
       end
+    end
   end
 
   def join

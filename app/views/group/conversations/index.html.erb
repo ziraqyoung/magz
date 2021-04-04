@@ -1,11 +1,44 @@
 <div class="flex flex-col p-4 bg-white shadow-md col-span-full space-y-6 divide-y-2 md:col-span-10 md:col-start-2 rounded-md">
-  <div class="overflow-x-auto font-semibold text-gray-800 divide-y-2 divide-gray-200">
-    <% if @group_conversations.present? %>
-      <%= render partial: 'group/conversations/conversation', collection: @group_conversations, cached: true %>
-    <% else %>
-      <div class="text-gray-600">
-        currently no group conversations available
-      </div>
-    <% end %>
-  </div>
+  <section class="space-y-4">
+
+    <header class="relative flex items-center justify-between">
+      <h2 class="text-lg font-medium text-black leading-6">Groups</h2>
+
+      <%= tag.details class: 'block', data: { controller: 'dialog', action: 'toggle->dialog#toggleDialog keydown->dialog#closeOnEscape click@document->dialog#closeOnClickOutside' } do %>
+        <%= tag.summary \
+          class: 'flex items-center px-4 py-2 text-sm font-medium text-blue-600 list-none bg-blue-100 cursor-pointer hover:bg-blue-200 hover:text-blue-800 group rounded-md' do %>
+          <svg class="mr-2 text-blue-600 group-hover:text-blue-600" width="12" height="20" fill="currentColor">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M6 5a1 1 0 011 1v3h3a1 1 0 110 2H7v3a1 1 0 11-2 0v-3H2a1 1 0 110-2h3V6a1 1 0 011-1z"/>
+          </svg>
+          New
+          <%= link_to "New Group", new_group_conversation_path, data: { dialog_target: 'link', turbo_frame: 'new_group' } %>
+        <% end %>
+
+        <%= turbo_frame_tag "new_group", class: "absolute flex justify-center text-center inset-x-0 z-10 top-10 px-5 pt-6 pb-5 mt-3 text-white list-none shadow-lg rounded-3xl bg-gradient-to-br from-pink-500 to-cyan-500 left-1/2 transform -translate-x-1/2 ", data: {dialog_target: 'dialog'} do %>
+            <svg class="w-10 h-10 text-white animate-spin" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+            </svg>
+        <% end %>
+      <% end %>
+    </header>
+
+
+    <form action="" method="" accept-charset="utf-8" class="relative">
+      <svg width="20" height="20" fill="currentColor" class="absolute text-gray-400 top-1/2 left-3 transform -translate-y-1/2">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" />
+      </svg>
+      <input class="w-full py-2 pl-10 text-sm text-black placeholder-gray-500 border border-gray-200 rounded-md " type="text" aria-label="Search a group" placeholder="Search a group"/>
+    </form>
+
+    <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <% if @group_conversations.present? %>
+        <%= render partial: 'group/conversations/conversation', collection: @group_conversations, cached: true %>
+      <% else %>
+        <li class="flex rounded-lg col-span-full hover:shadow-lg">
+          <%= link_to new_group_conversation_path "New Group", class: "flex items-center justify-center w-full py-4 text-sm font-medium border-2 border-gray-200 border-dashed rounded-lg hover:border-transparent hover:shadow-xs" %>
+        </li>
+      <% end %>
+    </ul>
+  </section>
 </div>

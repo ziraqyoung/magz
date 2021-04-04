@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* @import "tailwindcss/base"; */
-/* @import "tailwindcss/components"; */
-/* @import "tailwindcss/utilities"; */
-
 details > summary::-webkit-details-marker {
   display: none;
 }
@@ -87,6 +83,10 @@ details > summary::-webkit-details-marker {
     trix-toolbar {
       @apply hidden;
     }
+  }
+
+  trix-toolbar {
+    @apply text-base;
   }
 
   .btn-focusable {

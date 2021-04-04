@@ -1,12 +1,12 @@
-<%= form_for @group_conversation, html: {class: 'flex flex-col space-y-2'} do |f| %>
+<%= form_for @group_conversation, html: { class: 'flex flex-col w-full space-y-4', data: { turbo_frame: '_top' } } do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
 
   <div class="w-full">
     <%= f.label :name, class: 'sr-only' %>
-    <%= f.text_field :name, class: 'text-input font-semibold', placeholder: "Name of the Group... eg. 'Hotwire and Rails'" %>
+    <%= f.text_field :name, class: 'text-input', placeholder: "Name of the Group... eg. 'Hotwire and Rails'" %>
   </div>
 
-  <div>
+  <div class="self-center">
     <%= f.submit "Save", class: 'btn btn--primary' %>
   </div>
 <% end %>
