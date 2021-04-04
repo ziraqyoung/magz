@@ -10,11 +10,6 @@ RSpec.describe "Notifications", type: :request do
       get notifications_url
       expect(response).to require_login
     end
-
-    it 'POST :create redirects to login path' do
-      post notifications_url, params: {notification: attributes_for(:notification)}
-      expect(response).to require_login
-    end
   end
 
   context 'signed-in users' do
