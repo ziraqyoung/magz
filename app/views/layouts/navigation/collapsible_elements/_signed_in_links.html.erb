@@ -5,7 +5,7 @@
 
 <div class="flex items-center justify-center space-x-5">
   <div>
-    <%= render App::DropdownComponent.new do |c| %>
+    <%= render App::DropdownComponent.new(details_id: 'my_notifications') do |c| %>
       <%= c.summary do %>
         <%= turbo_stream_from "notifications.#{current_user.id}" %>
         <span class="sr-only">View notifications</span>
@@ -48,7 +48,7 @@
   </div>
 
   <div>
-    <%= render App::DropdownComponent.new do |c| %>
+    <%= render App::DropdownComponent.new(details_id: 'me_menu') do |c| %>
       <%= c.summary do %>
         <span class="sr-only">Open user menu</span>
         <%= render 'shared/user_avatar', name: current_user.name %>
