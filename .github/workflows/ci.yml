@@ -59,6 +59,7 @@ jobs:
         run: |
           bundle install --jobs 4 --retry 3
           yarn install --frozen-lockfile
+          yarn build
 
       - name: Build and run tests
         env:
