@@ -51,6 +51,7 @@ jobs:
 
       - name: Install system dependencies
         run: |
+          sudo apt update
           sudo apt install -yqq libpq-dev build-essential libcurl4-openssl-dev
           gem install bundler
 
