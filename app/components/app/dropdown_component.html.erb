@@ -1,4 +1,4 @@
-<details class="relative ml-3"
+<details class="ml-3 sm:relative"
          data-controller="popup-menu"
          data-action="toggle->popup-menu#update focusin@window->popup-menu#closeOnFocusOutside click@window->popup-menu#closeOnClickOutside reset->popup-menu#close"
          id="<%= @details_id %>"
@@ -8,7 +8,7 @@
          </summary>
 
 
-         <div class="absolute right-0 py-1 mt-2 overflow-hidden bg-white shadow-lg w-max origin-top-right rounded-md ring-1 ring-black ring-opacity-5" role="menu" aria-orientation="vertical" aria-labelledby="user-menu">
+         <div class="absolute right-0 py-1 mt-2 overflow-hidden bg-white shadow-lg w-max origin-center tranform -translate-x-1/2 md:origin-top-right rounded-md ring-1 ring-black ring-opacity-5" role="menu" aria-orientation="vertical" aria-labelledby="user-menu">
            <%= body %>
          </div>
 </details>
